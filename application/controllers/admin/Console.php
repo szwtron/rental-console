@@ -97,7 +97,7 @@ class Console extends CI_Controller {
             $nama           = $this->input->post('nama');
             $description    = $this->input->post('description');
             $harga          = $this->input->post('harga');
-            $status         = $this->input->post('status');
+            $status         = $this->input->post('status_console');
             $gambar         = $_FILES['gambar']['name'];
             if($gambar){
                 $config ['upload_path'] = './assets/upload';
@@ -118,7 +118,7 @@ class Console extends CI_Controller {
                 'nama'              => $nama,
                 'description'       => $description,
                 'harga'             => $harga,
-                'status'            => $status,
+                'status_console'            => $status,
             );
 
             $where = array(

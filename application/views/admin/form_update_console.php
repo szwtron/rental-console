@@ -13,13 +13,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Category Console</label>
-                            <input type="hidden" name="category" value="<?php echo $cs->id_console ?>">
+                            <input type="hidden" name="id_console" value="<?php echo $cs->id_console ?>">
                             <select name="id_category" class="form-control">
                                 <option value="<?php echo $cs->id_category ?>"><?php echo $cs->id_category ?></option>
                                 <?php foreach ($category as $cat) : ?>
                                     <option value="<?php echo $cat->id_category ?>">
                                     <?php echo $cat->nama ?></option>
-                                <?php end foreach; ?>
+                                <?php endforeach; ?>
                             </select>
                         </div>
 
@@ -43,10 +43,12 @@
                         <div class="form-group">
                             <label for="">Status</label>
                             <select name="status" class="form-control">
-                                <option <?php if($cs->status_console == "1"){echo "selected='selected'"}
+                                <option <?php if($cs->status_console == "1"){echo "selected='selected'";}
                                 echo $cs->status_console; ?> value="1">Tersedia</option>
-                                <option <?php if($cs->status_console == "0"){echo "selected='selected'"}
+
+                                <option <?php if($cs->status_console == "0"){echo "selected='selected'";}
                                 echo $cs->status_console; ?> value="0">Tidak Tersedia</option>
+
                             </select>
                             <?php echo form_error('status', '<div class="text-small text-danger">','</div>')?>
                         </div>
