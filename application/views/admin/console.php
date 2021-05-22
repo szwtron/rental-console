@@ -45,8 +45,8 @@
                         </td>
                         <td>
                             <a href="<?php echo base_url('admin/console/detail_console/').$cs->id_console ?>" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
-                            <a href="<?php echo base_url('admin/console/delete_console/').$cs->id_console ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                            <a href="<?php echo base_url('admin/console/update_console/').$cs->id_console ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                            <a href="<?php echo base_url('admin/console/update_console/').$cs->id_console ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="<?php echo base_url('admin/console/delete_console/').$cs->id_console ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
