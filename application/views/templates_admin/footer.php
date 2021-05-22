@@ -23,5 +23,6 @@
 
   <!-- Page Specific JS File -->
   <script src="<?php echo base_url('assets/assets_stisla') ?>/assets/js/page/index-0.js"></script>
+
 </body>
 </html>
