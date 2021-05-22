@@ -228,13 +228,20 @@
             <a href="index.html">Rental</a>
           </div>
           <ul class="sidebar-menu">
-              <li><a class="nav-link" href="credits.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-              <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>Admin</span></a></li>
-              <li><a class="nav-link" href="credits.html"><i class="fas fa-gamepad"></i> <span>Consoles</span></a></li>
-              <li><a class="nav-link" href="credits.html"><i class="fas fa-grip-horizontal"></i> <span>Category</span></a></li>
-              <li><a class="nav-link" href="credits.html"><i class="fas fa-users"></i> <span>Customer</span></a></li>
-              <li><a class="nav-link" href="credits.html"><i class="fas fa-random"></i> <span>Transaction</span></a></li>
-              <li><a class="nav-link" href="credits.html"><i class="fas fa-clipboard-list"></i> <span>Laporan</span></a></li>
+              <li><a class="nav-link" href="<?php echo base_url('admin/dashboard') ?>"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+
+              <li><a class="nav-link" href="<?php echo base_url('admin/admin') ?>"><i class="fas fa-pencil-ruler"></i> <span>Admin</span></a></li>
+
+              <li><a class="nav-link" href="<?php echo base_url('admin/console') ?>"><i class="fas fa-gamepad"></i> <span>Consoles</span></a></li>
+
+              <li><a class="nav-link" href="<?php echo base_url('admin/category') ?>"><i class="fas fa-grip-horizontal"></i> <span>Category</span></a></li>
+
+              <li><a class="nav-link" href="<?php echo base_url('admin/customer') ?>"><i class="fas fa-users"></i> <span>Customer</span></a></li>
+
+              <li><a class="nav-link" href="<?php echo base_url('admin/transaction') ?>"><i class="fas fa-random"></i> <span>Transaction</span></a></li>
+
+              <li><a class="nav-link" href="<?php echo base_url('admin/report') ?>"><i class="fas fa-clipboard-list"></i> <span>Report</span></a></li>
+
             </ul>
 
             <!-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
