@@ -13,7 +13,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Category Console</label>
-                            <input type="hidden" name="id_console" value="<?php echo $cs->id_console ?>">
+                            <input type="hidden" name="id_category" value="<?php echo $cs->id_console ?>">
                             <select name="id_category" class="form-control">
                                 <option value="<?php echo $cs->id_category ?>"><?php echo $cs->id_category ?></option>
                                 <?php foreach ($category as $cat) : ?>
@@ -42,7 +42,7 @@
 
                         <div class="form-group">
                             <label for="">Status</label>
-                            <select name="status" class="form-control">
+                            <select name="status_console" class="form-control">
                                 <option <?php if($cs->status_console == "1"){echo "selected='selected'";}
                                 echo $cs->status_console; ?> value="1">Tersedia</option>
 
