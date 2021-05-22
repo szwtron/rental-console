@@ -24,13 +24,13 @@ class Console extends CI_Controller {
     public function tambah_console_aksi(){
         $this->_rules();
         if($this->form_validation->run() == FALSE) {
-            $this->tambah_mobil();
+            $this->tambah_console();
         } else {
             $id_category = $this->input->post('id_category');
             $nama = $this->input->post('nama');
             $description = $this->input->post('description');
             $harga = $this->input->post('harga');
-            $status = $this->input->post('status');
+            $status = $this->input->post('status_console');
             $gambar = $_FILES['gambar']['name'];
             if($gambar = ''){
 
@@ -50,21 +50,27 @@ class Console extends CI_Controller {
                 'nama' => $nama,
                 'description' => $description,
                 'harga' => $harga,
-                'status' => $status,
+                'status_console' => $status,
                 'gambar' => $gambar
             );
             $this->rental->insert_data($data,'console');
-            $this->session->set_flashdata('pesan', 'Data berhasil ditambahkan!');
+            $this->session->set_flashdata('pesan', 
+            '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                Data mobil berhasil ditambahkan.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>');
             redirect('admin/console');
         }
     }
 
     public function _rules() {
-        $this->form_validation->set_rules('id_category', 'ID Category', 'required');
+        $this->form_validation->set_rules('id_category', 'Category Console', 'required');
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
         $this->form_validation->set_rules('harga', 'Harga', 'required');
-        $this->form_validation->set_rules('status', 'Status', 'required');
+        $this->form_validation->set_rules('status_console', 'Status', 'required');
     }
 }
 
