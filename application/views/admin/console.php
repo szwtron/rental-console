@@ -4,7 +4,7 @@
         <h1>Consoles</h1>
         </div>
 
-        <a href="" class="btn btn-primary mb-3"><i class="fas fa-plus mr-1"></i>Tambah Data</a>
+        <a href="<?php echo base_url('admin/console/tambah_console')?>" class="btn btn-primary mb-3"><i class="fas fa-plus mr-1"></i>Tambah Data</a>
 
         <table class="table table-hover table-striped table-bordered">
             <thead>
