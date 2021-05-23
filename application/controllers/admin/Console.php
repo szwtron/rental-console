@@ -88,32 +88,6 @@ class Console extends CI_Controller {
         {
             $this->update_console($id);
         }else{
-            // $id             = $this->input->post('id_console');
-            // $category       = $this->input->post('id_category');
-            // $nama           = $this->input->post('nama');
-            // $description    = $this->input->post('description');
-            // $harga          = $this->input->post('harga');
-            // $status         = $this->input->post('status_console');
-            // $gambar         = $_FILES['gambar']['name'];
-            // if($gambar){
-            //     $config ['upload_path'] = './assets/upload';
-            //     $config ['allowes_types'] = 'jpg|jpeg|png|tiff';
-
-            //     $this->load->library('upload', $config);
-            //     if(!$this->upload->do_upload('gambar')){
-            //         echo "Gambar Gagal Diupload";
-            //     } else {
-            //         $gambar = $this->upload->data('file_name');
-            //     }
-            // }
-
-            // $data = array(
-            //     'id_category' => $category,
-            //     'nama' => $nama,
-            //     'description' => $description,
-            //     'harga'  => $harga,
-            //     'status_console' => $status
-            // );
             $id_console = $this->input->post('id_console');
             $id_category = $this->input->post('id_category');
             $nama = $this->input->post('nama');
@@ -127,12 +101,6 @@ class Console extends CI_Controller {
                 $config['allowed_types'] = 'jpg|jpeg|png|tiff';
 
                 $this->load->library('upload', $config);
-
-                // if(!$this->upload->do_upload('gambar')){
-                //     echo "Gambar Gagal Diupload";
-                // } else {
-                //     $gambar = $this->upload->data('file_name');
-                // }
 
                 if($this->upload->do_upload('gambar')){
                     $gambar = $this->upload->data('file_name');
