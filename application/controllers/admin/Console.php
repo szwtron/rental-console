@@ -69,9 +69,11 @@ class Console extends CI_Controller {
 
     public function update_console($id){
         $where = array('id_console' => $id);
-        $data['console'] = $this->db->query("SELECT * FROM console cs WHERE cs.id_console='$id'")->result();
-        $data['category'] = $this->rental->get_data('category')->result();
-        
+        $data['console'] = $this->db->select('*')
+                                    ->join('category', 'console.id_category = category.id_category')
+                                    ->where(['console.id_console' => $id])
+                                    ->get('console')->result();
+        $data['category'] = $this->rental->get_data('category')->result();        
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/form_update_console', $data);
