@@ -65,6 +65,7 @@
                                 <input type="file" name="gambar" class="form-control">
                             </div>   
 
+                            <input type="hidden" name="current_image" value="<?php echo $cs->gambar; ?>">               
                             <button type="submit" class="btn btn-primary mt-2">Simpan</button>
                             <button type="reset" class="btn btn-danger mt-2">Reset</button>
 

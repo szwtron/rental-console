@@ -95,8 +95,17 @@ class Console extends CI_Controller {
             $harga = $this->input->post('harga');
             $status = $this->input->post('status_console');
             $gambar = $_FILES['gambar']['name'];
+            $current_image = $this->input->post('current_image');
 
             if($gambar){
+
+                if($current_image != ""){
+                    $remove_path = "./assets/upload/".$current_image;
+                    $remove = unlink($remove_path);
+                }
+
+
+
                 $config['upload_path'] = './assets/upload';
                 $config['allowed_types'] = 'jpg|jpeg|png|tiff';
 
@@ -116,7 +125,7 @@ class Console extends CI_Controller {
                     </div>');
                     redirect('admin/console');
                 }
-            } 
+            }
 
             $data = array(
                 'id_category' => $id_category,
