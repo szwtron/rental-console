@@ -64,14 +64,14 @@
                             if($cs->status_console == "0"){
                                 echo "<span class='btn btn-danger mb-2' style='cursor:not-allowed;'disable> Tidak Tersedia </span>";
                             } else {
-                                echo anchor('customer/rental/tambah_rental'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
+                                echo anchor('customer/rental/tambah_rental/'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
                             }
 
                             ?>
                             </div>
 
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Details</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?php echo base_url('customer/dashboard/detail_console/'.$cs->id_console) ?>">Details</a></div>
                             </div>
                         </div>
                     </div>
