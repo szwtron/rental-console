@@ -12,8 +12,9 @@
     <table class="table table-bordered table-striped table-hover">
         <thead>
             <tr class="text-center">
-                <th>Id Category</th>
+                <th width="200px">Id Category</th>
                 <th>Nama Category</th>
+                <th>Description</th>
             </tr>
         </thead>
 
@@ -23,6 +24,7 @@
                 <tr class="text-center">
                     <td><?php echo $cat->id_category ?></td>
                     <td><?php echo $cat->nama_cat ?></td>
+                    <td><?php echo $cat->description_cat?></td>
                 </tr>
             <?php endforeach ?>
         </tbody>
