@@ -159,6 +159,32 @@ class Console extends CI_Controller {
         $this->form_validation->set_rules('status_console', 'Status', 'required');
     }
 
+    public function detail_console($id){
+        $data['detail'] = $this->rental->get_id_console($id);
+        $data['console'] = $this->db->select('*')
+                                    ->join('category', 'console.id_category = category.id_category')
+                                    ->where(['console.id_console' => $id])
+                                    ->get('console')->result();
+
+        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/sidebar');
+        $this->load->view('admin/detail_console', $data);
+        $this->load->view('templates_admin/footer');
+    }
+
+    public function delete_console($id){
+        $where = array('id_console' => $id);
+
+        $this->rental->delete_data($where, 'console');
+        $this->session->set_flashdata('pesan', 
+        '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Data berhasil dihapus!.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>');
+        redirect('admin/console');
+    }
 }
 
 
