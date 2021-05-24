@@ -11,7 +11,7 @@
                 
                 <div class="row">
                     <div class="col-md-5">
-                        <img src="<?php echo base_url().'assets/upload/'.$dt->gambar ?>">
+                        <img width="400px" src="<?php echo base_url().'assets/upload/'.$dt->gambar ?>">
                     </div>
                     <div class="col-md-7">
                         <table class="table">
