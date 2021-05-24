@@ -118,7 +118,7 @@ class Console extends CI_Controller {
                     echo $this->upload->display_errors();
                     $this->session->set_flashdata('pesan', 
                     '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        Data gagal diupdate!.
+                        Data gagal diupdate!. Pastikan file dipilih berupa jpg, jpeg, png, atau tiff!
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
