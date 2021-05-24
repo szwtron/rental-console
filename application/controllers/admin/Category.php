@@ -25,12 +25,12 @@
             if($this->form_validation->run() == FALSE) {
                 $this->tambah_category();
             }else{
-                $id_category    = $this->input->post('id_category');
                 $nama_cat       = $this->input->post('nama_cat');
+                $description_cat = $this->input->post('description_cat');
 
                 $data = array(
-                    'id_category'   => $id_category,
-                    'nama_cat'      => $nama_cat
+                    'nama_cat'      => $nama_cat,
+                    'description_cat' => $description_cat
                 );
                 $this->rental->insert_data($data,'category');
                 $this->session->set_flashdata('pesan', 
@@ -45,8 +45,9 @@
         }
 
         public function _rules(){
-            $this->form_validation->set_rules('id_category', 'Id Category', 'required');
+            
             $this->form_validation->set_rules('nama_cat', 'Nama Category', 'required');
+            $this->form_validation->set_rules('description_cat', 'Description', 'required');
         }
 
     }
