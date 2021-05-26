@@ -15,7 +15,7 @@
                                     <option value="">--Pilih category</option>
                                     <?php foreach($category as $cat) : ?>
                                         <option value="<?php echo $cat->id_category?>">
-                                        <?php echo $cat->nama ?></option>
+                                        <?php echo $cat->nama_cat ?></option>
                                     <?php endforeach; ?>
                                 </select>
                                 <?php echo form_error('id_category', '<div class="text-small text-danger">','</div>') ?>
