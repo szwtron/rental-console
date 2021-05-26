@@ -1,34 +1,35 @@
-<?php 
+<?php
 
-class Rental extends CI_model{
-    public function get_data($table){
-        // return $this->db->get($table);
+class Rental extends CI_model
+{
+    public function get_data($table)
+    {
         return $this->db->get($table);
     }
 
-    public function insert_data($data, $table){
+    public function insert_data($data, $table)
+    {
         $this->db->insert($table, $data);
     }
 
-    public function update_data($table, $data, $where){
+    public function update_data($table, $data, $where)
+    {
         $this->db->update($table, $data, $where);
     }
 
-    public function get_id_console($id){
+    public function get_id_console($id)
+    {
         $result = $this->db->where('id_console', $id)->get('console');
-        if($result->num_rows() > 0) {
+        if ($result->num_rows() > 0) {
             return $result->result();
-        }else {
+        } else {
             return false;
         }
     }
 
-    public function delete_data($where, $table){
+    public function delete_data($where, $table)
+    {
         $this->db->where($where);
         $this->db->delete($table);
     }
 }
-
-// $this->db->select("*")->from("console")->join("category", "id_category = id_category");
-
-?>
