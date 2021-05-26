@@ -4,7 +4,7 @@ class Customer extends CI_Controller
 {
     public function index()
     {
-        $data['customer'] = $this->rental->get_data('user')->result();
+        $data['customer'] = $this->db->query("SELECT * FROM user WHERE role_id = 2")->result();
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/customer', $data);
@@ -33,6 +33,7 @@ class Customer extends CI_Controller
             $alamat = $this->input->post('alamat');
             $gender = $this->input->post('gender');
             $no_telepon = $this->input->post('no_telepon');
+            $role_id = '2';
 
             $data = array(
                 'nama' => $nama,
@@ -42,6 +43,7 @@ class Customer extends CI_Controller
                 'alamat' => $alamat,
                 'gender' => $gender,
                 'no_telepon' => $no_telepon,
+                'role_id' => $role_id,
             );
 
             $this->rental->insert_data($data, 'user');

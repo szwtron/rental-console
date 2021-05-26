@@ -75,6 +75,9 @@
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <div class="d-sm-none d-lg-inline-block">Welcome, <?php echo $this->session->userdata('nama')?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
+              <a href="<?php echo base_url('auth/ganti_password')?>" class="dropdown-item has-icon text-primary">
+                <i class="fas fa-lock"></i> Change Password
+              </a>
               <a href="<?php echo base_url('auth/logout')?>" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
