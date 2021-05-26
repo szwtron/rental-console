@@ -33,6 +33,14 @@ class Console extends CI_Controller
             $description = $this->input->post('description');
             $harga = $this->input->post('harga');
             $status = $this->input->post('status_console');
+            $multiplayer = $this->input->post('multiplayer');
+            $ad_hoc = $this->input->post('ad_hoc');
+            $online = $this->input->post('online');
+            $subscription = $this->input->post('subscription');
+            $small_storage = $this->input->post('small_storage');
+            $medium_storage = $this->input->post('medium_storage');
+            $large_storage = $this->input->post('large_storage');
+            $game_list = $this->input->post('game_list');
             $gambar = $_FILES['gambar']['name'];
             if ($gambar = '') {
 
@@ -53,6 +61,14 @@ class Console extends CI_Controller
                 'description' => $description,
                 'harga' => $harga,
                 'status_console' => $status,
+                'multiplayer' => $multiplayer,
+                'ad_hoc' => $ad_hoc,
+                'online' => $online,
+                'subscription' => $subscription,
+                'small_storage' => $small_storage,
+                'medium_storage' => $medium_storage,
+                'large_storage' => $large_storage,
+                'game_list' => $game_list,
                 'gambar' => $gambar,
             );
             $this->rental->insert_data($data, 'console');
@@ -94,6 +110,14 @@ class Console extends CI_Controller
             $description = $this->input->post('description');
             $harga = $this->input->post('harga');
             $status = $this->input->post('status_console');
+            $multiplayer = $this->input->post('multiplayer');
+            $ad_hoc = $this->input->post('ad_hoc');
+            $online = $this->input->post('online');
+            $subscription = $this->input->post('subscription');
+            $small_storage = $this->input->post('small_storage');
+            $medium_storage = $this->input->post('medium_storage');
+            $large_storage = $this->input->post('large_storage');
+            $game_list = $this->input->post('game_list');
             $gambar = $_FILES['gambar']['name'];
             $current_image = $this->input->post('current_image');
 
@@ -131,6 +155,14 @@ class Console extends CI_Controller
                 'description' => $description,
                 'harga' => $harga,
                 'status_console' => $status,
+                'multiplayer' => $multiplayer,
+                'ad_hoc' => $ad_hoc,
+                'online' => $online,
+                'subscription' => $subscription,
+                'small_storage' => $small_storage,
+                'medium_storage' => $medium_storage,
+                'large_storage' => $large_storage,
+                'game_list' => $game_list,
             );
 
             $where = array(
@@ -156,6 +188,7 @@ class Console extends CI_Controller
         $this->form_validation->set_rules('description', 'Description', 'required');
         $this->form_validation->set_rules('harga', 'Harga', 'required');
         $this->form_validation->set_rules('status_console', 'Status', 'required');
+        $this->form_validation->set_rules('game_list', 'Gaame List', 'required');
     }
 
     public function detail_console($id)

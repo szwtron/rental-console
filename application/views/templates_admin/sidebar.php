@@ -74,6 +74,11 @@
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <div class="d-sm-none d-lg-inline-block">Welcome, <?php echo $this->session->userdata('nama')?></div></a>
+            <div class="dropdown-menu">
+              <a href="<?php echo base_url('customer/dashboard')?>" class="dropdown-item has-icon text-warning">
+                <i class="fas fa-sign-out-alt"></i> View Site
+              </a>
+            </div>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="<?php echo base_url('auth/logout')?>" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -85,7 +90,7 @@
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">RENTAL CONSOLE</a>
+            <a href="<?php echo base_url('admin/dashboard') ?>">RENTAL CONSOLE</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">Rental</a>
