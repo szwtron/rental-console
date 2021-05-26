@@ -57,6 +57,7 @@
                                 </li>
                                 
                                 <a class="nav-link" href="<?php echo base_url('auth/logout')?>"><span class="btn btn-sm btn-warning">Logout</span></a>
+                                <a class="nav-link" href="<?php echo base_url('auth/ganti_password')?>"><span class="btn btn-sm btn-primary">Change Password</span></a>
                                 <?php } else { ?>
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?php echo base_url('auth/login')?>"><span class="btn btn-sm btn-success">Login</span></a>

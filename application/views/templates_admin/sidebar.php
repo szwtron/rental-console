@@ -78,6 +78,9 @@
               <a href="<?php echo base_url('customer/dashboard')?>" class="dropdown-item has-icon text-warning">
                 <i class="fas fa-sign-out-alt"></i> View Site
               </a>
+              <a href="<?php echo base_url('auth/ganti_password')?>" class="dropdown-item has-icon text-primary">
+                <i class="fas fa-lock"></i> Change Password
+              </a>
               <a href="<?php echo base_url('auth/logout')?>" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
