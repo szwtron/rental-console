@@ -34,12 +34,15 @@
                 <td><?php echo $cst->gender?></td>
                 <td><?php echo $cst->no_telepon?></td>
                 <td>
-                    <a href="<?php echo base_url('admin/customer/hapus_customer/').$cst->id?>" class="btn btn-sm btn-danger">
-                        <i class="fas fa-trash"></i>
-                    </a>
-                    <a href="<?php echo base_url('admin/customer/update_customer/').$cst->id?>" class="btn btn-sm btn-primary">
-                        <i class="fas fa-edit"></i>
-                    </a>
+                    <div class="row">
+                        <a href="<?php echo base_url('admin/customer/hapus_customer/').$cst->id?>" class="btn btn-sm btn-danger mr-2">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                        <a href="<?php echo base_url('admin/customer/update_customer/').$cst->id?>" class="btn btn-sm btn-primary">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </div>
+                    
                 </td>
             </tr>
 

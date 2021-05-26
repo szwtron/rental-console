@@ -86,7 +86,7 @@ class Console extends CI_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == false) {
-            $this->update_console($id);
+            $this->update_console($this->input->post('id_console'));
         } else {
             $id_console = $this->input->post('id_console');
             $id_category = $this->input->post('id_category');
