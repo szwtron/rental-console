@@ -49,27 +49,86 @@
                             <!-- Product image-->
                             <a href="#"> <img class="card-img-top" src="<?php echo base_url('assets/upload/'.$cs->gambar) ?>" alt=""> </a>
                             <!-- Product details-->
-                            <div class="card-body p-4">
+                            <div class="card-body pt-4">
                                 <div class="text-center">
                                     <!-- Product name-->
                                     <h5 class="fw-bolder"><?php echo $cs->nama ?></h5>
                                     <!-- Product price-->
-                                    <?php echo "Rp. ".$cs->harga ?>
+                                    <?php echo "Rp. ".$cs->harga . " / hari"?>
+                                    
+                                </div>
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="text-center">
+                                    <!-- Fitur Console -->
+                                    <?php 
+                                        if($cs->multiplayer == "1"){
+                                            echo "<span class='badge alert-success'><span>&#10003;</span> Multiplayer</span>";
+                                        } else {
+                                            echo "<span class='badge alert-danger'><span>&#10007;</span> Multiplayer</span>";
+                                        }
+                                    ?>
+
+                                    <?php 
+                                        if($cs->ad_hoc == "1")
+                                        echo "<span class='badge alert-success'><span>&#10003;</span> Ad-hoc Network</span>"
+                                    ?>
+
+                                    <?php 
+                                        if($cs->online == "1") {
+                                        echo "<span class='badge alert-success'><span>&#10003;</span> Online</span>";
+                                        } else {
+                                            echo "<span class='badge alert-danger'><span>&#10007;</span> Online</span>";
+                                        }
+                                    ?>
+
+                                    <?php 
+                                        if($cs->subscription == "1") 
+                                        echo "<span class='badge alert-success'><span>&#10003;</span> Subscription</span>"
+                                    ?>
+                                    
+                                    <?php 
+                                        if($cs->small_storage == "1")
+                                        echo "<span class='badge alert-success'><span>&#10003;</span> 250GB</span>"
+                                    ?>
+
+                                    <?php 
+                                        if($cs->medium_storage == "1")
+                                        echo "<span class='badge alert-success'><span>&#10003;</span> 500GB</span>"
+                                    ?>         
+
+                                    <?php 
+                                        if($cs->large_storage == "1")
+                                        echo "<span class='badge alert-success'><span>&#10003;</span> 1000GB</span>"
+                                    ?>
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="text-center">
-                            <?php 
-                            
-                            if($cs->status_console == "0"){
-                                echo "<span class='btn btn-danger mb-2' style='cursor:not-allowed;'disable> Tidak Tersedia </span>";
-                            } else {
-                                echo anchor('customer/rental/tambah_rental/'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
-                            }
 
-                            ?>
+                                <?php if($this->session->userdata('nama')) { ?>
+                                    <?php                          
+                                        if($cs->status_console == "0"){
+                                            echo "<span class='btn btn-danger mb-2' style='cursor:not-allowed;'disable> Tidak Tersedia </span>";
+                                        } else {
+                                            echo anchor('customer/rental/tambah_rental/'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
+                                        }
+                                    ?>
+                                    
+                                    
+                                    <?php } else { ?>
+
+                                    <?php                          
+                                        if($cs->status_console == "0"){
+                                            echo "<span class='btn btn-danger mb-2' style='cursor:not-allowed;'disable> Tidak Tersedia </span>";
+                                        } else {
+                                            echo anchor('auth/login', '<button class="btn btn-success mb-2">Rental</button>');
+                                        }
+                                    ?>   
+                                <?php } ?>
+
                             </div>
-
+                            
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?php echo base_url('customer/dashboard/detail_console/'.$cs->id_console) ?>">Details</a></div>
                             </div>

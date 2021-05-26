@@ -1,7 +1,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-        <h1>Add Console</h1>
+        <h1>Add Rental</h1>
         </div>
 
         <div class="card">

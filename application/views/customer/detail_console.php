@@ -39,8 +39,12 @@
                                 <td><?php if($det->status_console == "0"){
                                     echo "<span class='btn btn-danger mb-2' style='cursor:not-allowed;'disable> Tidak Tersedia </span>";
                                 }else {
-                                    echo "<span class='btn btn-success mb-2' style='cursor:not-allowed;'disable> Tersedia </span>";
+                                    echo "<span class='btn btn-warning mb-2' style='cursor:not-allowed;'disable> Tersedia </span>";
                                 } ?></td>
+                            </tr>
+                            <tr>
+                                <th>Game List:</th>
+                                <td><?php echo $det->game_list ?></td>
                             </tr>
                             <tr class="vertical-center">
                                 <th>Aksi</th>
