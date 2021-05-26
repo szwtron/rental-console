@@ -17,6 +17,7 @@
                 $alamat = $this->input->post('alamat');
                 $gender = $this->input->post('gender');
                 $no_telepon = $this->input->post('no_telepon');
+                $role_id = '2';
 
                 $data = array(
                     'nama' => $nama,
@@ -26,6 +27,7 @@
                     'alamat' => $alamat,
                     'gender' => $gender,
                     'no_telepon' => $no_telepon,
+                    'role_id' => $role_id
                 );
     
                 $this->rental->insert_data($data, 'user');
