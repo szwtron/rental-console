@@ -27,9 +27,27 @@ class Rental extends CI_model
         }
     }
 
+    public function cek_login(){
+        $email = set_value('email');
+        $password = set_value('password');
+
+        $result = $this->db
+                        ->where('email', $email)
+                        ->where('password', md5($password))
+                        ->limit(1)
+                        ->get('user');
+        
+        if($result->num_rows() > 0){
+            return $result->row();
+        }else{
+            return FALSE;
+        }
+    }
+
     public function delete_data($where, $table)
     {
         $this->db->where($where);
         $this->db->delete($table);
     }
+    
 }
