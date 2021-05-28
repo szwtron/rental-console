@@ -53,7 +53,7 @@
                             <div class="card-body pt-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder"><?php echo $cs->nama ?></h5>
+                                    <h5 class="fw-bolder"><?php echo $cs->nama_console ?></h5>
                                     <!-- Product price-->
                                     <?php echo "Rp. ".$cs->harga . " / hari"?>
                                     

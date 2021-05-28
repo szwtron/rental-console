@@ -25,7 +25,7 @@
                             </tr>
                             <tr>
                                 <td>Nama</td>
-                                <td><?php echo $dt->nama ?></td>
+                                <td><?php echo $dt->nama_console ?></td>
                             </tr>
                             <tr>
                                 <td>Description</td>

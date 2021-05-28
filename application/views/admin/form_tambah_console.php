@@ -23,8 +23,8 @@
 
                             <div class="form-group">
                                 <label for="">Nama</label>
-                                <input type="text" name="nama" class="form-control" id="nama">
-                                <?php echo form_error('nama', '<div class="text-small text-danger">','</div>') ?>
+                                <input type="text" name="nama_console" class="form-control" id="nama_console">
+                                <?php echo form_error('nama_console', '<div class="text-small text-danger">','</div>') ?>
                             </div>          
                             
                             <div class="form-group">

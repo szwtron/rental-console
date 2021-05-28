@@ -30,7 +30,7 @@
                         <td>
                             <img width="200px" src="<?php echo base_url().'assets/upload/'.$cs->gambar ?>" alt="">
                         </td>
-                        <td><?php echo $cs->nama ?></td>
+                        <td><?php echo $cs->nama_console ?></td>
                         <td><?php echo $cs->description ?></td>
                         <td><?php echo $cs->id_category ?></td>
                         <td><?php echo $cs->harga ?></td>

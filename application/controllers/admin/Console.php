@@ -29,7 +29,7 @@ class Console extends CI_Controller
             $this->tambah_console();
         } else {
             $id_category = $this->input->post('id_category');
-            $nama = $this->input->post('nama');
+            $nama_console = $this->input->post('nama_console');
             $description = $this->input->post('description');
             $harga = $this->input->post('harga');
             $status = $this->input->post('status_console');
@@ -57,7 +57,7 @@ class Console extends CI_Controller
             }
             $data = array(
                 'id_category' => $id_category,
-                'nama' => $nama,
+                'nama_console' => $nama_console,
                 'description' => $description,
                 'harga' => $harga,
                 'status_console' => $status,
@@ -106,7 +106,7 @@ class Console extends CI_Controller
         } else {
             $id_console = $this->input->post('id_console');
             $id_category = $this->input->post('id_category');
-            $nama = $this->input->post('nama');
+            $nama_console = $this->input->post('nama_console');
             $description = $this->input->post('description');
             $harga = $this->input->post('harga');
             $status = $this->input->post('status_console');
@@ -151,7 +151,7 @@ class Console extends CI_Controller
 
             $data = array(
                 'id_category' => $id_category,
-                'nama' => $nama,
+                'nama_console' => $nama_console,
                 'description' => $description,
                 'harga' => $harga,
                 'status_console' => $status,
@@ -184,7 +184,7 @@ class Console extends CI_Controller
     public function _rules()
     {
         $this->form_validation->set_rules('id_category', 'Category Console', 'required');
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('nama_console', 'Nama', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
         $this->form_validation->set_rules('harga', 'Harga', 'required');
         $this->form_validation->set_rules('status_console', 'Status', 'required');
