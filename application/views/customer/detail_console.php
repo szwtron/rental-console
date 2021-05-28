@@ -32,7 +32,7 @@
                             </tr>
                             <tr>
                                 <th>Harga</th>
-                                <td><?php echo $det->harga ?></td>
+                                <td>Rp. <?php echo $det->harga ?></td>
                             </tr>
                             <tr class="vertical-center">
                                 <th style="">Status</th>

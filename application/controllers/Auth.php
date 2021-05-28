@@ -25,7 +25,7 @@ class Auth extends CI_Controller
                         <span aria-hidden="true">&times;</span>
                         </button>
                         </div>');
-                redirect('auth/login');
+                redirect(base_url('auth/login'));
             } else {
                 $this->session->set_userdata('email', $cek->email);
                 $this->session->set_userdata('role_id', $cek->role_id);
@@ -34,10 +34,10 @@ class Auth extends CI_Controller
 
                 switch ($cek->role_id) {
                     case '1':
-                        redirect('admin/dashboard');
+                        redirect(base_url('admin/dashboard'));
                         break;
                     case '2':
-                        redirect('customer/dashboard');
+                        redirect(base_url('customer/dashboard'));
                         break;
                     default:
                         break;
@@ -55,7 +55,7 @@ class Auth extends CI_Controller
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect('customer/dashboard');
+        redirect(base_url('customer/dashboard'));
     }
 
     public function ganti_password()
@@ -89,7 +89,7 @@ class Auth extends CI_Controller
                         <span aria-hidden="true">&times;</span>
                         </button>
                         </div>');
-            redirect('auth/login');
+            redirect(base_url('auth/login'));
         }
     }
 
