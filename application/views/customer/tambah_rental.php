@@ -27,7 +27,7 @@
                     </div>
                 </div>
 
-                <form method="POST" action="<?php echo base_url('customer/order/tambah_rental_aksi')?>" enctype="multipart/form-data">
+                <form method="POST" action="<?php echo base_url('customer/dashboard/tambah_keranjang')?>" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

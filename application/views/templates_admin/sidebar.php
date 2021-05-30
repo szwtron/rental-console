@@ -113,9 +113,9 @@
 
               <li><a class="nav-link" href="<?php echo base_url('admin/customer') ?>"><i class="fas fa-users"></i> <span>Customer</span></a></li>
 
-              <li><a class="nav-link" href="<?php echo base_url('admin/order') ?>"><i class="fas fa-random"></i> <span>Transaction</span></a></li>
+              <li><a class="nav-link" href="<?php echo base_url('admin/order') ?>"><i class="fas fa-random"></i> <span>All Transaction</span></a></li>
 
-              <li><a class="nav-link" href="<?php echo base_url('admin/report') ?>"><i class="fas fa-clipboard-list"></i> <span>Report</span></a></li>
+              <li><a class="nav-link" href="<?php echo base_url('admin/invoice') ?>"><i class="fas fa-clipboard-list"></i> <span>Report</span></a></li>
 
             </ul>
 

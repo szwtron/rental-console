@@ -1,12 +1,12 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Semua console yang sedang dipinjam</h1>
+            <h4>Detail Pesanan <div class="btn btn-sm btn-success">No. Invoice: <?php echo $transaksi[0]->id_invoice?></div></h4>
         </div>
 
         <table class="table table-bordered table-striped">
             <tr>
-                <th>ID</th>
+                <th>ID Console</th>
                 <th>Nama Customer</th>
                 <th>Nama Console</th>
                 <!-- <th>Tanggal Rental</th>
@@ -65,8 +65,8 @@
                         echo "<span class='badge alert-success'>$tr->status</span>";
                     }?>
                     </td>
-
-                    <!-- <td class="text-center"><?php if($tr->denda == 0){
+<!-- 
+                    <td class="text-center"><?php if($tr->denda == 0){
                         echo "-";
                     }else {
                         echo "<span class='badge alert-danger'>Rp. $tr->denda</span>";

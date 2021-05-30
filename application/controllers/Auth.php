@@ -30,6 +30,8 @@ class Auth extends CI_Controller
                 $this->load->model('transaction');
                 $jumlah_transaksi = $this->transaction->jumlah_transaksi($cek->id);
 
+                
+
                 $this->session->set_userdata('jumlah_transaksi', $jumlah_transaksi);
                 $this->session->set_userdata('email', $cek->email);
                 $this->session->set_userdata('role_id', $cek->role_id);

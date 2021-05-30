@@ -112,7 +112,7 @@
                                         if($cs->status_console == "0"){
                                             echo "<span class='btn btn-danger mb-2' style='cursor:not-allowed;'disable> Tidak Tersedia </span>";
                                         } else {
-                                            echo anchor('customer/order/tambah_rental/'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
+                                            echo anchor('customer/dashboard/tambah_keranjang/'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
                                         }
                                     ?>
                                     

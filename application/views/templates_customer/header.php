@@ -6,6 +6,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Rental Console</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="<?php echo base_url('assets/assets_shop/') ?>assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -48,10 +49,14 @@
                                 </li>
                                 <li class="nav-item">
                                     <form class="d-flex" style="margin-right: 0.5rem; margin-top: 0.3rem;">
-                                        <a href="<?php echo base_url('customer/dashboard/daftar_transaksi/'.$this->session->userdata('id'))?>" class="btn btn-outline-dark" type="submit">
+                                            <?php 
+                                                $keranjangs = $this->cart->total_items()
+                                            ?>
+                                        <a href="<?php echo base_url('customer/dashboard/detail_keranjang2/'.$keranjangs)?>" class="btn btn-outline-dark" type="submit">
                                             <i class="bi-cart-fill me-1"></i>
-                                            Cart
-                                            <span class="badge bg-dark text-white ms-1 rounded-pill"><?php echo $this->session->userdata('jumlah_transaksi') ?></span>
+                                            Cart 
+                                            <span> </span>
+                                            <span class="badge bg-dark text-white ms-1 rounded-pill"><?php echo $keranjangs ?></span>
                                         </a>
                                     </form>
                                 </li>
