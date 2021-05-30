@@ -28,26 +28,18 @@ class Order extends CI_Controller
         $returnDate = $this->input->post('returnDate');
         $harga = $this->input->post('harga');
 
-        //Hitung durasi rental
         $duration = abs(strtotime($fromDate) - strtotime($toDate));
         $years = floor($duration / (365 * 60 * 60 * 24));
         $months = floor(($duration - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
         $days = floor(($duration - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
 
-        var_dump($days);
-
-        //Harga * hari
         $harga_transaksi = $harga * $days;
 
         date_default_timezone_set('Asia/Jakarta');
 
-        $currentDate = time();
         $datestring = '%Y-%m-%d';
         $time = time();
         $better_date = mdate($datestring, $time); //  i.e : 2018-05-23 - 09:52 am | For AM | PM result
-        var_dump($toDate);
-        var_dump($better_date);
-        //$c_date=date("Y-m-d H:i:s").'<br>'; // 2018-05-23 09:52:36 | For Seconds Result
 
         if ($returnDate != 0) {
             $overdue = strtotime($toDate) - strtotime($returnDate);
@@ -85,11 +77,9 @@ class Order extends CI_Controller
             'online_tr' => $online_tr,
             'subscription_tr' => $subscription_tr,
             'storage' => $storage,
-            //default status = Sedang Dikirim
             'status' => 'Sedang Dikirim',
             'harga' => $harga,
             'harga_transaksi' => $harga_transaksi,
-            //default returnDate = 0
             'returnDate' => 0,
 
         );

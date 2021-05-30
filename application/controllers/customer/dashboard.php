@@ -21,9 +21,9 @@ class Dashboard extends CI_Controller
     public function daftar_transaksi($id)
     {
         $this->load->model('transaction');
-        $data['transaksi'] = $this->rental->get_transaksi($id);
-        
         $this->transaction->cek_denda();
+        $data['transaksi'] = $this->rental->get_transaksi($id);
+
         $this->load->view('templates_customer/header');
         $this->load->view('customer/daftar_transaksi', $data);
         $this->load->view('templates_customer/footer');
