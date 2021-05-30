@@ -12,6 +12,10 @@ class Order extends CI_Controller
 
     public function tambah_rental_aksi()
     {
+        $multiplayer_tr = 0;
+        $ad_hoc_tr = 0;
+        $online_tr = 0;
+        $subscription_tr = 0;
         $id = $this->session->userdata('id');
         $id_console = $this->input->post('id_console');
         $fromDate = $this->input->post('fromDate');
