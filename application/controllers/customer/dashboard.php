@@ -18,4 +18,15 @@ class Dashboard extends CI_Controller
         $this->load->view('templates_customer/footer');
     }
 
+    public function daftar_transaksi($id)
+    {
+        $this->load->model('transaction');
+        $data['transaksi'] = $this->rental->get_transaksi($id);
+        
+        $this->transaction->cek_denda();
+        $this->load->view('templates_customer/header');
+        $this->load->view('customer/daftar_transaksi', $data);
+        $this->load->view('templates_customer/footer');
+    }
+
 }

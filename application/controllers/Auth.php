@@ -27,10 +27,14 @@ class Auth extends CI_Controller
                         </div>');
                 redirect(base_url('auth/login'));
             } else {
+                $this->load->model('transaction');
+                $jumlah_transaksi = $this->transaction->jumlah_transaksi($cek->id);
+
+                $this->session->set_userdata('jumlah_transaksi', $jumlah_transaksi);
                 $this->session->set_userdata('email', $cek->email);
                 $this->session->set_userdata('role_id', $cek->role_id);
                 $this->session->set_userdata('nama', $cek->nama);
-                $this->session->set_userdata('id', $cek->id);
+                $this->session->set_userdata('id', $cek->id); 
 
                 switch ($cek->role_id) {
                     case '1':

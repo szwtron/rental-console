@@ -6,7 +6,7 @@
 
         <table class="table-responsive table table-bordered table-striped">
             <tr>
-                <th>No</th>
+                <th>ID</th>
                 <th>Nama Customer</th>
                 <th>Nama Console</th>
                 <th>Tanggal Rental</th>
@@ -22,7 +22,7 @@
 
             <?php $no=1; foreach($transaksi as $tr) :?>
                 <tr>
-                    <td><?php echo $no++?></td>
+                    <td><?php echo $tr->id_rental?></td>
                     <td><?php echo $tr->nama?></td>
                     <td><?php echo $tr->nama_console?></td>
                     <td><?php echo date('d/m/Y', strtotime($tr->fromDate));?></td>
