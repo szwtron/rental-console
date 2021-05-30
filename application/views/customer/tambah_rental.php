@@ -84,7 +84,10 @@
                                         </div>      
                                     </div>
                                 <?php
-                            }?>
+                            }else{
+                                ?>
+                                <input class="form-check-input" type="hidden" name="multiplayer_tr" value="0" />
+                            <?php } ?>
 
                             <?php if($dt->ad_hoc == '1'){
                                 ?>
@@ -96,7 +99,10 @@
                                         </div>      
                                     </div>
                                 <?php
-                            }?>
+                            }else{
+                                ?>
+                                <input class="form-check-input" type="hidden" name="ad_hoc_tr" value="0" />
+                            <?php } ?>
                             
                             <?php if($dt->online == '1'){
                                 ?>
@@ -108,7 +114,10 @@
                                         </div>      
                                     </div>
                                 <?php
-                            }?>
+                            }else{
+                                ?>
+                                <input class="form-check-input" type="hidden" name="online_tr" value="0" />
+                            <?php } ?>
 
                             <?php if($dt->subscription == '1'){
                                 ?>
@@ -120,7 +129,10 @@
                                         </div>      
                                     </div>
                                 <?php
-                            }?>
+                            }else{
+                                ?>
+                                <input class="form-check-input" type="hidden" name="subscription_tr" value="0" />
+                            <?php } ?>
                         </div>
 
 
