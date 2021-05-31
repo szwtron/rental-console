@@ -36,6 +36,10 @@
                                 <td><?php echo $dt->harga ?></td>
                             </tr>
                             <tr>
+                                <td>Game List</td>
+                                <td><?php echo $dt->game_list ?></td>
+                            </tr>
+                            <tr>
                                 <td>Status</td>
                                 <td>
                                     <?php 
