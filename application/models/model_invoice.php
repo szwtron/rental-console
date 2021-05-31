@@ -7,6 +7,8 @@ class model_invoice extends CI_Model{
         $noTelp = $this->input->post('noTelp');
         $fromDate = $this->input->post('fromDate');
         $toDate = $this->input->post('toDate');
+        $total = $this->input->post('total');
+        $catatan = $this->input->post('catatan');
         //$status_pesanan = $this->input->post('status_pesanan');
         //$status_pesanan = $this->input->post('status_pesanan');
         //$denda = 0;
@@ -19,7 +21,8 @@ class model_invoice extends CI_Model{
             'toDate' => $toDate,
             'status' => "Sedang Dikirim",
             'returnDate' => 0,
-            'denda' => 0,
+            'total' => $total,
+            'catatan' => $catatan,
         );
         $this->db->insert('invoice', $invoice);
         $id_invoice = $this->db->insert_id();
@@ -38,7 +41,7 @@ class model_invoice extends CI_Model{
                 'storage' => $item['storage'],
                 'status' => 'Sedang Dikirim',
                 'harga' => $item['price'],
-                'harga_transaksi' => 0,
+                'harga_transaksi' => $total,
                 'returnDate' => 0,
             );
             $this->db->insert('transaksi', $data);

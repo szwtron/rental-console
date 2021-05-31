@@ -3,17 +3,18 @@
         <div class="section-header">
             <h4>Keranjang Belanja</h4>
         </div>
-        <form method="POST" action="">
-            <table class="table table-bordered table-striped">
+        
+            <table class="table table-bordered">
                 <tr>
                     <th>No</th>
+                    <th style="width:200px;">Gambar</th>
                     <th>Nama Console</th>
                     <th>Jumlah</th>
                     <!-- <th>Tanggal Rental</th>
                     <th>Tanggal Pengembalian</th> -->
                     <!-- <th>Harga/Hari</th> -->
                     <th style="width:130px">Harga/hari</th>
-                    <th>Fitur yang diinginkan</th>
+                    <th>Fitur</th>
                     <!-- <th>Tanggal Dikembalikan</th> -->
                     <!-- <th>Status Rental</th> -->
                     <!-- <th>Action</th> -->
@@ -24,6 +25,7 @@
                 <?php $no=1; foreach($this->cart->contents() as $tr) :?>
                     <tr class="align-middle">
                         <td><?php echo $no++?></td>
+                        <td><img class="card-img-top" style="width:200px;" src="<?php echo base_url('assets/upload/'.$tr['gambar']) ?>"></td>
 
                         <!-- Row ID Automatically generated -->
                         <!-- <td><?php echo $tr['rowid']?></td> -->
@@ -103,13 +105,30 @@
 
                 <?php endforeach; ?>
             </table>
-            <div align="right">
-                <!-- <div class="btn btn-sm btn-danger">Hapus Keranjang</div></a> -->
-                <a href="<?php echo base_url('customer/dashboard/hapus_keranjang') ?>"><div class="btn btn-sm btn-danger">Hapus Keranjang</div></a>
-                <a href="<?php echo base_url('dashboard/index') ?>"><div class="btn btn-sm btn-primary">Back</div></a>
-                <a href="<?php echo base_url('customer/dashboard/checkout') ?>"><div class="btn btn-sm btn-success">Proceed to Checkout</div></a>
+            <div class="section justify-content-center">
+                <div class="section-header">
+                    <h1 class="m-2">Pilih Tanggal Sewa</h1>
+                </div>
+                <form class="m-2" method="post" action="<?php echo base_url('customer/dashboard/checkout') ?>">
+                    <div class="form-group">
+                        <label>Tanggal Rental</label>
+                        <input type="date" name="fromDate" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tanggal Kembali</label>
+                        <input type="date" name="toDate" class="form-control">
+                    </div>
+                
+                    <div align="right">
+                        <!-- <div class="btn btn-sm btn-danger">Hapus Keranjang</div></a> -->
+                        <a href="<?php echo base_url('customer/dashboard/hapus_keranjang') ?>"><div class="btn btn-sm btn-danger">Hapus Keranjang</div></a>
+                        <a href="<?php echo base_url('dashboard/index') ?>"><div class="btn btn-sm btn-primary">Back</div></a>
+                        <button type="submit" class="btn btn-sm btn-success">Proceed to Checkout</button>
+                        <!-- <a href="<?php echo base_url('customer/dashboard/checkout') ?>"> </a>-->
+                    </div>
+                </form>
             </div>
 
-        </form>
     </section>
 </div>

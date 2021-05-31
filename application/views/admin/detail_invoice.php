@@ -6,8 +6,8 @@
 
         <table class="table table-bordered table-striped">
             <tr>
-                <th>ID Console</th>
-                <th>Nama Customer</th>
+                <th style="width:50px;">ID Console</th>
+                <th style="width:200px;">Gambar</th>
                 <th>Nama Console</th>
                 <!-- <th>Tanggal Rental</th>
                 <th>Tanggal Pengembalian</th> -->
@@ -23,11 +23,12 @@
             <?php $no=1; foreach($transaksi as $tr) :?>
                 <tr>
                     <td><?php echo $tr->id_rental?></td>
-                    <td><?php echo $tr->nama?></td>
+                    <td><img class="card-img-top" style="width:200px;" src="<?php echo base_url('assets/upload/'.$tr->gambar) ?>"></td>
                     <td><?php echo $tr->nama_console?></td>
                     <!-- <td><?php echo date('d/m/Y', strtotime($tr->fromDate));?></td>
                     <td><?php echo date('d/m/Y', strtotime($tr->toDate));?></td> -->
-                    <td><?php echo "Rp. $tr->harga"?></td>
+                    <td>Rp. <?php echo number_format($tr->harga, 0,',','.') ?></td>
+                    
                     <!-- <td><?php echo "Rp. $tr->harga_transaksi"?></td> -->
                     <td> 
                     

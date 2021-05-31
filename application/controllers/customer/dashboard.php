@@ -32,8 +32,9 @@ class Dashboard extends CI_Controller
     public function tambah_keranjang($id){
         $console = $this->rental->get_id_console($id);
 
-        var_dump($console);
+        //var_dump($console);
         //die();
+        
         
 
         $data = array(
@@ -51,28 +52,10 @@ class Dashboard extends CI_Controller
             'storage' => 0,
             'status' => 'Sedang Dikirim',
             'harga' => $console[0]->harga,
-            'harga_transaksi' => 0,
+            'game_list' => $console[0]->game_list,
+            'gambar' => $console[0]->gambar,
             'returnDate' => 0
         );
-
-        
-
-        // $data = array(
-        //     'id_user' => $this->sessions->userdata['id'],
-        //     'qty'     => 1,
-        //     'id_console' => $console[0]->id_console,
-        //     'fromDate' => 0,
-        //     'toDate' => 0,
-        //     'multiplayer_tr' => $console[0]->multiplayer,
-        //     'ad_hoc_tr' => $console[0]->ad_hoc,
-        //     'online_tr' => $console[0]->online,
-        //     'subscription_tr' => $console[0]->subscription,
-        //     'storage' => 0,
-        //     'status' => 'Sedang Dikirim',
-        //     'harga' => $console[0]->harga,
-        //     'harga_transaksi' => 0,
-        //     'returnDate' => 0
-        // );
 
         $this->cart->insert($data);
 
@@ -138,8 +121,34 @@ class Dashboard extends CI_Controller
     }
 
     public function checkout(){
+        $fromDate = $this->input->post('fromDate');
+        $toDate = $this->input->post('toDate');
+
+        $duration = abs(strtotime($fromDate) - strtotime($toDate));
+        $years = floor($duration / (365 * 60 * 60 * 24));
+        $months = floor(($duration - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
+        $days = floor(($duration - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
+
+
+
+
+        $data['date'] = array(
+            'fromDate' => $fromDate,
+            'toDate' => $toDate,
+            'years' => $years,
+            'months' => $months,
+            'days' => $days
+        );
+
+
+
+        //$fromDate = $this->input->post('fromDate');
+        //$toDate = $this->input->post('toDate');
+        //var_dump($data);
+        //var_dump($toDate);
+        //die();
         $this->load->view('templates_customer/header');
-        $this->load->view('customer/checkout');
+        $this->load->view('customer/checkout', $data);
         $this->load->view('templates_customer/footer');
     }
 
