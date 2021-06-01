@@ -22,7 +22,8 @@ class Dashboard extends CI_Controller
     {
         $this->load->model('transaction');
         $this->transaction->cek_denda();
-        $data['transaksi'] = $this->rental->get_transaksi($id);
+        //$data['transaksi'] = $this->rental->get_transaksi($id);
+        $data['invoice'] = $this->model_invoice->tampil_data_id($id);
 
         $this->load->view('templates_customer/header');
         $this->load->view('customer/daftar_transaksi', $data);
@@ -57,7 +58,30 @@ class Dashboard extends CI_Controller
             'returnDate' => 0
         );
 
-        $this->cart->insert($data);
+        //Periksa cart kosong atau tidak
+        if($this->cart->contents()){
+           // $data = $this->cart->contents();
+            foreach ($this->cart->contents() as $items){
+                //var_dump($items);
+                //Jika keranjang sudah ada, periksa apakah qty > 0
+
+                if($items['id'] == $data['id']){
+                    var_dump($items['qty']);
+                    
+                    //Jika qty > 0, maka console tidak bisa dimasukkan ke keranjang lagi dan langsung redirect ke dashboard.
+                    if($items['qty'] > 0){
+                        redirect(base_url('customer/dashboard'));
+                    } 
+                    
+                } else {
+                    $this->cart->insert($data);
+                }
+            }
+
+        }else {
+            //Masukkan ke cart jika kosong
+            $this->cart->insert($data);
+        }
 
         redirect(base_url('customer/dashboard'));
     }

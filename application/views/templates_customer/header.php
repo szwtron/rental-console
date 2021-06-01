@@ -39,6 +39,9 @@
                                 <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="<?php echo base_url('customer/dashboard/daftar_transaksi/'.$this->session->userdata('id')) ?>">Daftar Transaksi</a>
+                        </li>
                     </ul>
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
