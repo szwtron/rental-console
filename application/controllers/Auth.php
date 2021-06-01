@@ -6,14 +6,59 @@ class Auth extends CI_Controller
     {
 
         $this->_rules();
+        $this->load->helper('captcha');
+            $vals = array(
+                    'img_path'      => './captcha-images/',
+                    'img_url'       => base_url().'captcha-images/',
+                    'font_path'     => './path/to/fonts/texb.ttf',
+                    'img_width'     => '150',
+                    'img_height'    => 30,
+                    'expiration'    => 7200,
+                    'word_length'   => 8,
+                    'font_size'     => 16,
+                    'img_id'        => 'Imageid',
+                    'pool'          => '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            
+                    // White background and border, black text and red grid
+                    'colors'        => array(
+                            'background' => array(255, 255, 255),
+                            'border' => array(255, 255, 255),
+                            'text' => array(0, 0, 0),
+                            'grid' => array(255, 40, 40)
+                    )
+            );
+            
+            $cap = create_captcha($vals);
+            $image = $cap['image'];
+            $captchaword = $cap['word'];
+            $this->session->set_userdata('captchaword', $captchaword);
+            echo $captchaword;
 
         if ($this->form_validation->run() == false) {
+            
             $this->load->view('templates_admin/header');
-            $this->load->view('form_login');
+            $this->load->view('form_login',['captcha_image'=>$image]);
             $this->load->view('templates_admin/footer');
         } else {
+
             $email = $this->input->post('email');
             $password = md5($this->input->post('password'));
+            $captcha = $this->input->post('captcha');
+            $captcha_answer = $this->session->userdata('captchaword');
+            var_dump($captcha_answer);
+            var_dump($captcha);
+            die();
+            
+            if ($captcha != $captcha_answer) {
+                $this->session->set_flashdata('pesan',
+                    '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        Captcha Salah!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>');
+                redirect(base_url('auth/login'));
+            }
 
             $cek = $this->rental->cek_login($email, $password);
 
