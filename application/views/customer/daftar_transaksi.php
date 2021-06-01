@@ -22,7 +22,7 @@
                 <th>Action</th>
             </tr>
 
-            <?php $no=1; foreach($invoice as $tr) :?>
+            <?php $no=1; if($invoice != NULL) foreach($invoice as $tr) :?>
                 <tr class="align-middle">
                     <td><?php echo $no++?></td>
                     <td><?php echo $tr->id_invoice?></td>
@@ -49,10 +49,8 @@
 
                     <td class="text-center"><?php if($tr->returnDate == 0){
                         echo "<span class='badge alert-warning'>Belum dikembalikan</span>";
-                    }else if($tr->returnDate != 0 && $tr->denda == 0){
+                    }else if($tr->returnDate != 0){
                         echo "<span class='badge alert-success'>".date('d/m/Y', strtotime($tr->returnDate))."</span>";
-                    }else if($tr->returnDate != 0 && $tr->denda != 0){
-                        echo "<span class='badge alert-danger'>".date('d/m/Y', strtotime($tr->returnDate))."</span>";
                     }?></td>
 
                     <td>
@@ -66,12 +64,6 @@
                         echo "<span class='badge alert-success'>$tr->status_invoice</span>";
                     }?>
                     </td>
-
-                    <!-- <td class="text-center"><?php if($tr->denda == 0){
-                        echo "-";
-                    }else {
-                        echo "<span class='badge alert-danger'>Rp. $tr->denda</span>";
-                    }?></td> -->
 
                     <!-- Status -->
                     <td>
