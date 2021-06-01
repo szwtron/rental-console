@@ -40,9 +40,10 @@
         <!-- Section-->
 
         <section class="py-5">
+        <?php echo $this->session->flashdata('pesan') ?>
+        
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
                 <?php foreach($console as $cs) : ?> 
                     <div class="col mb-5">
                         <div class="card h-100">
@@ -52,7 +53,7 @@
                             <div class="card-body pt-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder"><?php echo $cs->nama ?></h5>
+                                    <h5 class="fw-bolder"><?php echo $cs->nama_console ?></h5>
                                     <!-- Product price-->
                                     <?php echo "Rp. ".$cs->harga . " / hari"?>
                                     
@@ -111,7 +112,7 @@
                                         if($cs->status_console == "0"){
                                             echo "<span class='btn btn-danger mb-2' style='cursor:not-allowed;'disable> Tidak Tersedia </span>";
                                         } else {
-                                            echo anchor('customer/rental/tambah_rental/'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
+                                            echo anchor('customer/dashboard/tambah_keranjang/'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
                                         }
                                     ?>
                                     

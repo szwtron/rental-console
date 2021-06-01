@@ -24,7 +24,7 @@
                         <table class="table mt-5">
                             <tr>
                                 <th>Nama</th>
-                                <td><?php echo $det->nama ?></td>
+                                <td><?php echo $det->nama_console ?></td>
                             </tr>
                             <tr>
                                 <th>Description</th>

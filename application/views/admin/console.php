@@ -11,11 +11,11 @@
         <table class="table table-hover table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>No</th>
+                    <th style="width:30px;">No</th>
                     <th>Gambar</th>
                     <th>Nama</th>
                     <th>Description</th>
-                    <th>Category</th>
+                    <th style="width:30px;">Category</th>
                     <th>Harga</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -30,10 +30,11 @@
                         <td>
                             <img width="200px" src="<?php echo base_url().'assets/upload/'.$cs->gambar ?>" alt="">
                         </td>
-                        <td><?php echo $cs->nama ?></td>
+                        <td><?php echo $cs->nama_console ?></td>
                         <td><?php echo $cs->description ?></td>
                         <td><?php echo $cs->id_category ?></td>
-                        <td><?php echo $cs->harga ?></td>
+                        <td>Rp. <?php echo number_format($cs->harga, 0,',','.') ?></td>
+                        
                         <td> 
                             <?php            
                                 if($cs->status_console == "0"){
