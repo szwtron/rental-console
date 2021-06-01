@@ -9,6 +9,7 @@ class model_invoice extends CI_Model{
         $toDate = $this->input->post('toDate');
         $total = $this->input->post('total');
         $catatan = $this->input->post('catatan');
+        $id_user = $this->input->post('id_user');
         //$status_pesanan = $this->input->post('status_pesanan');
         //$status_pesanan = $this->input->post('status_pesanan');
         //$denda = 0;
@@ -19,10 +20,11 @@ class model_invoice extends CI_Model{
             'noTelp' => $noTelp,
             'fromDate' => $fromDate,
             'toDate' => $toDate,
-            'status' => "Sedang Dikirim",
+            'status_invoice' => "Sedang Dikirim",
             'returnDate' => 0,
             'total' => $total,
             'catatan' => $catatan,
+            'id_user' => $id_user,
         );
         $this->db->insert('invoice', $invoice);
         $id_invoice = $this->db->insert_id();
@@ -45,12 +47,23 @@ class model_invoice extends CI_Model{
                 'returnDate' => 0,
             );
             $this->db->insert('transaksi', $data);
+            $this->db->query("UPDATE console SET stock = stock-1 WHERE id_console = {$item['id']}");
+
         }
         return true;
     }
 
     public function tampil_data() {
         $result = $this->db->get('invoice');
+        if($result->num_rows() > 0){
+            return $result->result();
+        } else {
+            return false;
+        }
+    }
+
+    public function tampil_data_id($id_user) {
+        $result = $this->db->where('id_user', $id_user)->get('invoice');
         if($result->num_rows() > 0){
             return $result->result();
         } else {
@@ -74,6 +87,23 @@ class model_invoice extends CI_Model{
         } else {
             return false;
         }
+    }
+
+    public function delete_data($where, $table)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
+    }
+
+    public function get_date()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+
+        $datestring = '%Y-%m-%d';
+        $time = time();
+        $better_date = mdate($datestring, $time);
+
+        return $better_date;
     }
 
 }

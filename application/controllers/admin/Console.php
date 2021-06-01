@@ -4,8 +4,10 @@ class Console extends CI_Controller
 {
     public function index()
     {
-        $data['console'] = $this->rental->get_data('console')->result();
         $data['category'] = $this->rental->get_data('category')->result();
+        $data['console'] = $this->db->select('*')
+                                    ->join('category', 'console.id_category = category.id_category')
+                                    ->get('console')->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
@@ -33,6 +35,7 @@ class Console extends CI_Controller
             $description = $this->input->post('description');
             $harga = $this->input->post('harga');
             $status = $this->input->post('status_console');
+            $stock = $this->input->post('stock');
             $multiplayer = $this->input->post('multiplayer');
             $ad_hoc = $this->input->post('ad_hoc');
             $online = $this->input->post('online');
@@ -61,6 +64,7 @@ class Console extends CI_Controller
                 'description' => $description,
                 'harga' => $harga,
                 'status_console' => $status,
+                'stock' => $stock,
                 'multiplayer' => $multiplayer,
                 'ad_hoc' => $ad_hoc,
                 'online' => $online,
@@ -110,6 +114,7 @@ class Console extends CI_Controller
             $description = $this->input->post('description');
             $harga = $this->input->post('harga');
             $status = $this->input->post('status_console');
+            $stock = $this->input->post('stock');
             $multiplayer = $this->input->post('multiplayer');
             $ad_hoc = $this->input->post('ad_hoc');
             $online = $this->input->post('online');
@@ -155,6 +160,7 @@ class Console extends CI_Controller
                 'description' => $description,
                 'harga' => $harga,
                 'status_console' => $status,
+                'stock' => $stock,
                 'multiplayer' => $multiplayer,
                 'ad_hoc' => $ad_hoc,
                 'online' => $online,

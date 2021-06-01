@@ -1,8 +1,14 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
+            <div class="m-2" style="float:right;">
+                <?php echo anchor('customer/dashboard/daftar_transaksi/'.$this->session->userdata('id'), '<button class="btn btn-success">X</button>') ?>
+            </div>
             <h4>Detail Pesanan <div class="btn btn-sm btn-success">No. Invoice: <?php echo $transaksi[0]->id_invoice?></div></h4>
+
         </div>
+
+
 
         <table class="table table-bordered table-striped">
             <tr>

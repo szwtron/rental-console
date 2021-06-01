@@ -40,7 +40,7 @@
         <!-- Section-->
 
         <section class="py-5">
-        <?php echo $this->session->flashdata('pesan') ?>
+        <!-- <?php echo $this->session->flashdata('pesan') ?> -->
         
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -108,11 +108,30 @@
                             <div class="text-center">
 
                                 <?php if($this->session->userdata('nama')) { ?>
+                                    <?php $keranjangs = $this->cart->total_items() ?>
                                     <?php                          
                                         if($cs->status_console == "0"){
                                             echo "<span class='btn btn-danger mb-2' style='cursor:not-allowed;'disable> Tidak Tersedia </span>";
-                                        } else {
-                                            echo anchor('customer/dashboard/tambah_keranjang/'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
+                                        } else { 
+                                            if($keranjangs == "0"){
+                                                echo anchor('customer/dashboard/tambah_keranjang/'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
+                                            }else {
+                                                foreach($this->cart->contents() as $tr) :
+                                                if($tr['id'] == $cs->id_console) { 
+                                                    $flag = "1";
+                                                    break;
+                                                }else {
+                                                    $flag = "0";
+                                                }
+                                                endforeach;  
+
+                                                if($flag == "0"){
+                                                    echo anchor('customer/dashboard/tambah_keranjang/'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
+                                                }else {
+                                                    echo "<span class='btn btn-danger mb-2' style='cursor:not-allowed;'disable> Sudah anda pesan </span>";
+                                                }
+                                            }
+                                                
                                         }
                                     ?>
                                     

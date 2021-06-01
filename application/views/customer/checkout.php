@@ -70,6 +70,7 @@
                     <input type="date" name="fromDate" class="form-control">
                 </div> -->
 
+                <input type="hidden" name="id_user" value="<?php echo $this->session->userdata('id')?>">
                 <input type="hidden" name="fromDate" value="<?php echo $date['fromDate'] ?>">
                 <input type="hidden" name="toDate" value="<?php echo $date['toDate'] ?>">
                 <input type="hidden" name="total" value ="<?php echo $grand_total ?>">
