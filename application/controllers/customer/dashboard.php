@@ -23,7 +23,8 @@ class Dashboard extends CI_Controller
     {
         $this->load->model('transaction');
         $this->transaction->cek_denda();
-        $data['transaksi'] = $this->rental->get_transaksi($id);
+        //$data['transaksi'] = $this->rental->get_transaksi($id);
+        $data['invoice'] = $this->model_invoice->tampil_data_id($id);
 
         $this->load->view('templates_customer/header');
         $this->load->view('customer/daftar_transaksi', $data);
