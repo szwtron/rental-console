@@ -16,6 +16,7 @@
                     <th>Nama</th>
                     <th>Description</th>
                     <th style="width:30px;">Category</th>
+                    <th>Stock</th>
                     <th>Harga</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -32,7 +33,8 @@
                         </td>
                         <td><?php echo $cs->nama_console ?></td>
                         <td><?php echo $cs->description ?></td>
-                        <td><?php echo $cs->id_category ?></td>
+                        <td><?php echo $cs->nama_cat ?></td>
+                        <td><?php echo $cs->stock ?></td>
                         <td>Rp. <?php echo number_format($cs->harga, 0,',','.') ?></td>
                         
                         <td> 

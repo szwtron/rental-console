@@ -4,6 +4,7 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
+        $this->transaction->cek_stock();
         $data['console'] = $this->rental->get_data('console')->result();
         $this->load->view('templates_customer/header');
         $this->load->view('customer/dashboard', $data);
@@ -31,11 +32,7 @@ class Dashboard extends CI_Controller
 
     public function tambah_keranjang($id){
         $console = $this->rental->get_id_console($id);
-
-        //var_dump($console);
-        //die();
-        
-        
+        $check = $this->cart->contents();
 
         $data = array(
             'id'      => $console[0]->id_console,
@@ -57,57 +54,21 @@ class Dashboard extends CI_Controller
             'returnDate' => 0
         );
 
-        $this->cart->insert($data);
+        if($check->id_console = $console[0]->id_console){
+            redirect(base_url('customer/dashboard'));
+        }else{
+            $this->cart->insert($data);
 
-        redirect(base_url('customer/dashboard'));
+            redirect(base_url('customer/dashboard'));
+        }
+
     }
 
-    public function tambah_keranjang2(){
-        $multiplayer_tr = 0;
-        $ad_hoc_tr = 0;
-        $online_tr = 0;
-        $subscription_tr = 0;
-        $id = $this->session->userdata('id');
-        $id_console = $this->input->post('id_console');
-        $fromDate = $this->input->post('fromDate');
-        $toDate = $this->input->post('toDate');
-        $storage = $this->input->post('storage');
-        $multiplayer_tr = $this->input->post('multiplayer_tr');
-        $ad_hoc_tr = $this->input->post('ad_hoc_tr');
-        $online_tr = $this->input->post('online_tr');
-        $subscription_tr = $this->input->post('subscription_tr');
-        $returnDate = $this->input->post('returnDate');
-        $harga = $this->input->post('harga');
-
-        
-
-
-        $data = array(
-            'id_user' => $id,
-            'id_console' => $id_console,
-            'fromDate' => $fromDate,
-            'toDate' => $toDate,
-            'multiplayer_tr' => $multiplayer_tr,
-            'ad_hoc_tr' => $ad_hoc_tr,
-            'online_tr' => $online_tr,
-            'subscription_tr' => $subscription_tr,
-            'storage' => $storage,
-            'status' => 'Sedang Dikirim',
-            'harga' => $harga,
-            'harga_transaksi' => $harga_transaksi,
-            'returnDate' => 0
-        );
- 
-        $this->cart->insert($data);
-
-        redirect(base_url('customer/dashboard'));
-    }
-
-    public function detail_keranjang($id){
-        $this->load->view('templates_customer/header');
-        $this->load->view('customer/detail_keranjang');
-        $this->load->view('templates_customer/footer');
-    }
+    // public function detail_keranjang($id){
+    //     $this->load->view('templates_customer/header');
+    //     $this->load->view('customer/detail_keranjang');
+    //     $this->load->view('templates_customer/footer');
+    // }
 
     public function detail_keranjang2($id){
         $this->load->view('templates_customer/header');

@@ -74,4 +74,16 @@ class Transaction extends CI_model
         }
     }
 
+    public function cek_stock()
+    {
+        $result = $this->db->get('console')->result();
+        foreach ($result as $rs) :
+            if($rs->stock == 0){
+                $this->db->query("UPDATE console SET status_console = 0 WHERE id_console = $rs->id_console");
+            }else{
+                $this->db->query("UPDATE console SET status_console = 1 WHERE id_console = $rs->id_console");
+            }
+        endforeach;
+    }
+
 }

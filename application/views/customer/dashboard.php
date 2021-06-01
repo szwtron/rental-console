@@ -108,11 +108,30 @@
                             <div class="text-center">
 
                                 <?php if($this->session->userdata('nama')) { ?>
+                                    <?php $keranjangs = $this->cart->total_items() ?>
                                     <?php                          
                                         if($cs->status_console == "0"){
                                             echo "<span class='btn btn-danger mb-2' style='cursor:not-allowed;'disable> Tidak Tersedia </span>";
-                                        } else {
-                                            echo anchor('customer/dashboard/tambah_keranjang/'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
+                                        } else { 
+                                            if($keranjangs == "0"){
+                                                echo anchor('customer/dashboard/tambah_keranjang/'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
+                                            }else {
+                                                foreach($this->cart->contents() as $tr) :
+                                                if($tr['id'] == $cs->id_console) { 
+                                                    $flag = "1";
+                                                    break;
+                                                }else {
+                                                    $flag = "0";
+                                                }
+                                                endforeach;  
+
+                                                if($flag == "0"){
+                                                    echo anchor('customer/dashboard/tambah_keranjang/'.$cs->id_console, '<button class="btn btn-success mb-2">Rental</button>');
+                                                }else {
+                                                    echo "<span class='btn btn-danger mb-2' style='cursor:not-allowed;'disable> Sudah anda pesan </span>";
+                                                }
+                                            }
+                                                
                                         }
                                     ?>
                                     

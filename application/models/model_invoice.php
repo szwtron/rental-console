@@ -45,6 +45,8 @@ class model_invoice extends CI_Model{
                 'returnDate' => 0,
             );
             $this->db->insert('transaksi', $data);
+            $this->db->query("UPDATE console SET stock = stock-1 WHERE id_console = {$item['id']}");
+
         }
         return true;
     }

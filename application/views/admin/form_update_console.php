@@ -46,6 +46,12 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="">Jumlah Stock</label>
+                                <input type="number" name="stock" class="form-control" min ="0" value="<?php echo $cs->stock ?>">
+                                <?php echo form_error('stock', '<div class="text-small text-danger">','</div>') ?>   
+                            </div>
+
+                            <div class="form-group">
                                 <label for="">Gambar</label>
                                 <input type="file" name="gambar" class="form-control">
                             </div>   
