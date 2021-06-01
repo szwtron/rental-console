@@ -33,7 +33,7 @@ class Auth extends CI_Controller
             $image = $cap['image'];
             $captchaword = $cap['word'];
             $this->session->set_userdata('captchaword', $captchaword);
-            echo $captchaword;
+            //echo $captchaword;
 
             $this->load->view('templates_admin/header');
             $this->load->view('form_login',['captcha_image'=>$image]);
