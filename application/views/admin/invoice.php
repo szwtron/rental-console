@@ -14,6 +14,7 @@
                 <th>Batas Pengembalian</th>
                 <th>Total</th>
                 <th>Status</th>
+                <th>Tanggal Pengembalian</th>
                 <th>Aksi</th>
             </tr>
 
@@ -40,6 +41,13 @@
                         echo "<span class='badge alert-success'>$inv->status_invoice</span>";
                     }?>
                     </td>
+
+                    
+                    <td class="text-center"><?php if($inv->returnDate == 0){
+                        echo "<span class='badge alert-warning'>Belum dikembalikan</span>";
+                    }else {
+                        echo "<span class='badge alert-success'>".date('d/m/Y', strtotime($inv->returnDate))."</span>";
+                    }?></td>
 
                     <td>
                         
@@ -68,6 +76,7 @@
 
                         
                     </td>
+
                 </tr>
             <?php endforeach; ?>
         </table>
