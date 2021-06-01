@@ -37,7 +37,10 @@ class Invoice extends CI_Controller {
         // $this->load->model('transaction');
         // $this->transaction->
         $result = $this->db->get('invoice')->result();
+        $date = $this->model_invoice->get_date();
+
         $this->db->query("UPDATE invoice SET status_invoice = 'Selesai' WHERE id_invoice = '$id'");
+        $this->db->query("UPDATE invoice SET returnDate = '$date' WHERE id_invoice = '$id'");
 
         $done = $this->db->query("SELECT id_console FROM transaksi WHERE id_invoice = '$id'")->result();
         foreach($done as $dn) :

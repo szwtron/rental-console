@@ -95,6 +95,17 @@ class model_invoice extends CI_Model{
         $this->db->delete($table);
     }
 
+    public function get_date()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+
+        $datestring = '%Y-%m-%d';
+        $time = time();
+        $better_date = mdate($datestring, $time);
+
+        return $better_date;
+    }
+
 }
 
 
