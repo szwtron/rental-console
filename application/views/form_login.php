@@ -29,6 +29,11 @@
                     <?php echo form_error('password', '<div class="text-small text-danger">', '</div>')?>
                   </div>
 
+                  <div class="form-group">
+                    <label for="captcha">Captcha</label><br>
+                    <?php echo $captcha_image;?>
+                    <input id="captcha" type="text" class="form-control" name="captcha" tabindex="3">
+                  </div>
 
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
