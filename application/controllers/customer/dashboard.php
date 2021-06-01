@@ -55,7 +55,9 @@ class Dashboard extends CI_Controller
             'returnDate' => 0
         );
 
-        if($check->id_console = $console[0]->id_console){
+        var_dump($check);
+
+        if($check->id_console == $console[0]->id_console){
             redirect(base_url('customer/dashboard'));
         }else{
             $this->cart->insert($data);
