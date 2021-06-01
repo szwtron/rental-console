@@ -19,7 +19,7 @@ class model_invoice extends CI_Model{
             'noTelp' => $noTelp,
             'fromDate' => $fromDate,
             'toDate' => $toDate,
-            'status' => "Sedang Dikirim",
+            'status_invoice' => "Sedang Dikirim",
             'returnDate' => 0,
             'total' => $total,
             'catatan' => $catatan,
@@ -39,7 +39,7 @@ class model_invoice extends CI_Model{
                 'online_tr' => $item['online_tr'],
                 'subscription_tr' => $item['subscription_tr'],
                 'storage' => $item['storage'],
-                'status' => 'Sedang Dikirim',
+                'status_invoice' => 'Sedang Dikirim',
                 'harga' => $item['price'],
                 'harga_transaksi' => $total,
                 'returnDate' => 0,
@@ -76,6 +76,12 @@ class model_invoice extends CI_Model{
         } else {
             return false;
         }
+    }
+
+    public function delete_data($where, $table)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
     }
 
 }
