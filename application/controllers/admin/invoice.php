@@ -38,6 +38,12 @@ class Invoice extends CI_Controller {
         // $this->transaction->
         $result = $this->db->get('invoice')->result();
         $this->db->query("UPDATE invoice SET status_invoice = 'Selesai' WHERE id_invoice = '$id'");
+
+        $done = $this->db->query("SELECT id_console FROM transaksi WHERE id_invoice = '$id'")->result();
+        foreach($done as $dn) :
+            $this->db->query("UPDATE console SET stock = stock+1 WHERE id_console = '$dn->id_console'");
+        endforeach;
+
         redirect('admin/invoice');
     }
 

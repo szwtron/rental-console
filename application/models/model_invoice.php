@@ -41,7 +41,7 @@ class model_invoice extends CI_Model{
                 'online_tr' => $item['online_tr'],
                 'subscription_tr' => $item['subscription_tr'],
                 'storage' => $item['storage'],
-                'status_invoice' => 'Sedang Dikirim',
+                'status' => 'Sedang Dikirim',
                 'harga' => $item['price'],
                 'harga_transaksi' => $total,
                 'returnDate' => 0,

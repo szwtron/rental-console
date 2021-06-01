@@ -16,7 +16,6 @@
                 <th style="width:130px">Harga/Hari</th>
                 <th>Fitur yang diinginkan</th>
                 <th>Tanggal Dikembalikan</th>
-                <th>Status Rental</th>
                 <!-- <th>Denda</th> -->
             </tr>
 
@@ -54,18 +53,6 @@
                     }else if($tr->returnDate != 0 && $tr->denda != 0){
                         echo "<span class='badge alert-danger'>".date('d/m/Y', strtotime($tr->returnDate))."</span>";
                     }?></td>
-
-                    <td>
-                    <?php if($tr->status == "Sedang Dikirim"){
-                        echo "<span class='badge alert-warning'>$tr->status</span>";
-                    }else if($tr->status == "Sudah Dikirim"){
-                        echo "<span class='badge alert-success'>$tr->status</span>";
-                    }else if($tr->status == "Siap di Pick-up"){
-                        echo "<span class='badge alert-warning'>$tr->status</span>";
-                    }else if($tr->status == "Selesai"){
-                        echo "<span class='badge alert-success'>$tr->status</span>";
-                    }?>
-                    </td>
 
                     <!-- <td class="text-center"><?php if($tr->denda == 0){
                         echo "-";
