@@ -18,7 +18,6 @@
                 <th>Tanggal Dikembalikan</th>
                 <th>Status Rental</th>
                 <!-- <th>Denda</th> -->
-                <th>Action</th>
             </tr>
 
             <?php $no=1; foreach($transaksi as $tr) :?>
@@ -73,21 +72,6 @@
                     }else {
                         echo "<span class='badge alert-danger'>Rp. $tr->denda</span>";
                     }?></td> -->
-
-                    <td>
-                        <?php 
-                        
-                            if($tr->status == "Sedang Dikirim"){
-                                ?>
-                                    <div class="row">
-                                        <a href="<?php echo base_url('admin/transaction/transaction_selesai')?>" class="btn btn-sm btn-success mr-2"><i class="fas fa-check"></i></a>
-                                        <a href="<?php echo base_url('admin/transaction/transaction_batal')?>" class="btn btn-sm btn-danger"><i class="fas fa-times"></i></a>
-                                    </div>
-                                <?php
-                            }
-                        
-                        ?>
-                    </td>
                     
                 </tr>
 

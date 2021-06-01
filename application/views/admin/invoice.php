@@ -27,17 +27,17 @@
                     <td><?php echo $inv->toDate?></td>
                     <td>Rp. <?php echo number_format($inv->total, 0,',','.') ?></td>
 
-                    <!-- <td><?php echo $inv->status?></td> -->
+                    <!-- <td><?php echo $inv->status_invoice?></td> -->
 
                     <td>
-                    <?php if($inv->status == "Sedang Dikirim"){
-                        echo "<span class='badge alert-warning'>$inv->status</span>";
-                    }else if($inv->status == "Sudah Dikirim"){
-                        echo "<span class='badge alert-success'>$inv->status</span>";
-                    }else if($inv->status == "Siap di Pick-up"){
-                        echo "<span class='badge alert-warning'>$inv->status</span>";
-                    }else if($inv->status == "Selesai"){
-                        echo "<span class='badge alert-success'>$inv->status</span>";
+                    <?php if($inv->status_invoice == "Sedang Dikirim"){
+                        echo "<span class='badge alert-warning'>$inv->status_invoice</span>";
+                    }else if($inv->status_invoice == "Sudah Dikirim"){
+                        echo "<span class='badge alert-success'>$inv->status_invoice</span>";
+                    }else if($inv->status_invoice == "Siap di Pick-up"){
+                        echo "<span class='badge alert-warning'>$inv->status_invoice</span>";
+                    }else if($inv->status_invoice == "Selesai"){
+                        echo "<span class='badge alert-success'>$inv->status_invoice</span>";
                     }?>
                     </td>
 
@@ -47,13 +47,18 @@
                         <?php echo anchor('admin/invoice/detail/'.$inv->id_invoice, '<div class="btn btn-sm btn-primary mr-2">Details</div>' ) ?>
                         <?php 
                             
-                            if($inv->status == "Sedang Dikirim"){
+                            if($inv->status_invoice == "Sedang Dikirim"){
                                 ?>
                                     
-                                        <a href="<?php echo base_url('admin/transaction/transaction_selesai')?>" class="btn btn-sm btn-success mr-2"><i class="fas fa-check"></i></a>
-                                        <a href="<?php echo base_url('admin/transaction/transaction_batal')?>" class="btn btn-sm btn-danger"><i class="fas fa-times"></i></a>
+                                    <a href="<?php echo base_url('admin/invoice/transaction_dikirim/').$inv->id_invoice?>" class="btn btn-sm btn-success mr-2"><i class="fas fa-check"></i></a>
+                                    <a href="<?php echo base_url('admin/invoice/transaction_batal/').$inv->id_invoice?>" class="btn btn-sm btn-danger"><i class="fas fa-times"></i></a>
                                     
                                 <?php
+                            }else if($inv->status_invoice == "Siap di Pick-up"){ 
+                                ?>
+                                    <a href="<?php echo base_url('admin/invoice/transaction_selesai/').$inv->id_invoice?>" class="btn btn-sm btn-success mr-2"><i class="fas fa-check"></i></a>
+                                    <a href="<?php echo base_url('admin/invoice/transaction_batal/').$inv->id_invoice?>" class="btn btn-sm btn-danger"><i class="fas fa-times"></i></a>
+                                <?php 
                             }
                         
                         ?>
