@@ -4,16 +4,17 @@ class Auth extends CI_Controller
 
     public function login()
     {
-
         $this->_rules();
-        $this->load->helper('captcha');
+        
+        if ($this->form_validation->run() == false) {
+            $this->load->helper('captcha');
             $vals = array(
                     'img_path'      => './captcha-images/',
                     'img_url'       => base_url().'captcha-images/',
                     'font_path'     => './path/to/fonts/texb.ttf',
                     'img_width'     => '150',
                     'img_height'    => 30,
-                    'expiration'    => 7200,
+                    'expiration'    => 1,
                     'word_length'   => 8,
                     'font_size'     => 16,
                     'img_id'        => 'Imageid',
@@ -34,21 +35,14 @@ class Auth extends CI_Controller
             $this->session->set_userdata('captchaword', $captchaword);
             echo $captchaword;
 
-        if ($this->form_validation->run() == false) {
-            
             $this->load->view('templates_admin/header');
             $this->load->view('form_login',['captcha_image'=>$image]);
             $this->load->view('templates_admin/footer');
         } else {
-
             $email = $this->input->post('email');
             $password = md5($this->input->post('password'));
             $captcha = $this->input->post('captcha');
             $captcha_answer = $this->session->userdata('captchaword');
-            var_dump($captcha_answer);
-            var_dump($captcha);
-            die();
-            
             if ($captcha != $captcha_answer) {
                 $this->session->set_flashdata('pesan',
                     '<div class="alert alert-danger alert-dismissible fade show" role="alert">
