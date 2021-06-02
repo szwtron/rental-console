@@ -13,9 +13,28 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<?php echo base_url('assets/assets_shop/') ?>css/styles.css" rel="stylesheet" />
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <style>
+    @media (min-width: 768px) {
+        .body {
+            padding-top: 70px; /* nav height */
+        }
+        .sticky-nav {
+            position:fixed;
+            top:0;
+            width: 100%;
+            z-index: 99999999;
+        }
+    }
+    </style>
+    <body class="body">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light page-header sticky-nav">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="<?php echo base_url('customer/dashboard') ?>">Rental Console</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -27,9 +46,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#!">About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo base_url('register') ?>">Register</a>
-                        </li>
+
                         <?php if($this->session->userdata('nama')) { ?>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="<?php echo base_url('customer/dashboard/daftar_transaksi/'.$this->session->userdata('id')) ?>">Daftar Transaksi</a>
@@ -62,6 +79,9 @@
                                 <?php } else { ?>
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?php echo base_url('auth/login')?>"><span class="btn btn-sm btn-success">Login</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo base_url('register') ?>"><span class="btn btn-sm btn-primary">Register</span></a>
                                 </li>
                             <?php } ?>
                         
