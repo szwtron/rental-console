@@ -13,6 +13,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<?php echo base_url('assets/assets_shop/') ?>css/styles.css" rel="stylesheet" />
+        <link href="<?php echo base_url('assets/assets_shop/') ?>css/vanilla-tilt.min.css" rel="stylesheet" />
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -65,7 +66,7 @@
                                             <?php 
                                                 $keranjangs = $this->cart->total_items()
                                             ?>
-                                        <a href="<?php echo base_url('customer/dashboard/detail_keranjang2/'.$keranjangs)?>" class="btn btn-outline-dark" type="submit">
+                                        <a href="<?php echo base_url('customer/dashboard/detail_keranjang/'.$keranjangs)?>" class="btn btn-outline-dark" type="submit">
                                             <i class="bi-cart-fill me-1"></i>
                                             Cart 
                                             <span> </span>
