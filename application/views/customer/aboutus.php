@@ -31,7 +31,7 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
-        <h2>About Us</h2>
+        <h1>About Us</h1>
       </div>
     </div><!-- End Breadcrumbs -->
 
@@ -44,18 +44,18 @@
             <img src="assets/img/about.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <h2>Rentol</h2>
             <p class="font-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              Rentol adalah sebuah web penyedia jasa peminjaman console yang lengkap disertai dengan game dan
+              fitur tambahan dari console dengan harga terjangkau. Kami membuat web Rentol ini dengan tujuan :
             </p>
             <ul>
-              <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="icofont-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+              <li><i class="icofont-check-circled"></i> Memberikan kesempatan kepada orang yang tidak memiliki console sehingga dapat bermain dengan harga terjangkau tanpa perlu memikirkan pembelian game console tersebut.</li>
+              <li><i class="icofont-check-circled"></i> Mendukung program social distancing dimasa pandemi sehingga orang dapat tetap terhibur dirumah.</li>
+              <li><i class="icofont-check-circled"></i> Memberikan kesempatan kepada orang yang ingin mencoba console terlebih dahulu sebelum membelinya.</li>
             </ul>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              Dengan adanya web Rentol ini, kami berharap jasa peminjaman console menjadi usaha yang menjanjikan seperti dahulu kala. 
             </p>
 
           </div>
