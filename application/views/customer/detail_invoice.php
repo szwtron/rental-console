@@ -15,12 +15,8 @@
                 <th style="width:50px;">ID Console</th>
                 <th style="width:200px;">Gambar</th>
                 <th>Nama Console</th>
-                <!-- <th>Tanggal Rental</th>
-                <th>Tanggal Pengembalian</th> -->
-                <!-- <th>Harga/Hari</th> -->
                 <th style="width:130px">Harga/Hari</th>
                 <th>Fitur yang diinginkan</th>
-                <!-- <th>Denda</th> -->
             </tr>
 
             <?php $no=1; foreach($transaksi as $tr) :?>
@@ -28,11 +24,7 @@
                     <td><?php echo $tr->id_rental?></td>
                     <td><img class="card-img-top" style="width:200px;" src="<?php echo base_url('assets/upload/'.$tr->gambar) ?>"></td>
                     <td><?php echo $tr->nama_console?></td>
-                    <!-- <td><?php echo date('d/m/Y', strtotime($tr->fromDate));?></td>
-                    <td><?php echo date('d/m/Y', strtotime($tr->toDate));?></td> -->
                     <td>Rp. <?php echo number_format($tr->harga, 0,',','.') ?></td>
-                    
-                    <!-- <td><?php echo "Rp. $tr->harga_transaksi"?></td> -->
                     <td> 
                     
                     <?php if($tr->multiplayer_tr == "1") {
