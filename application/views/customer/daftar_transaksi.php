@@ -6,7 +6,7 @@
 
         
 
-        <table class="table table-bordered table-striped">
+        <table class="table table-responsive-sm table-bordered table-striped">
             <tr>
                 <th>No</th>
                 <th>ID Invoice</th>
@@ -56,10 +56,9 @@
                         
                             if($tr->status_invoice == "Sudah Dikirim"){
                                 ?>
-                                    <div class="row">
-                                        <a href="<?php echo base_url('customer/invoice_customer/transaction_diterima/').$tr->id_invoice?>" ><button class="btn btn-sm btn-success m-2"><i class="bi bi-check"></i></button></a>
+                                    
+                                    <a href="<?php echo base_url('customer/invoice_customer/transaction_diterima/').$tr->id_invoice?>" ><button class="btn btn-sm btn-success m-2"><i class="bi bi-check"></i></button></a>
                                         
-                                    </div>
                                 <?php
                             }
                         
