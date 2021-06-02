@@ -5,7 +5,7 @@
             <h4>Keranjang Belanja</h4>
         </div>
 
-        <table class="table-responsive table table-bordered table-striped">
+        <table class=" table table-bordered table-striped">
             <tr>
                 <th>No</th>
                 <th>Nama Console</th>
