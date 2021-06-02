@@ -44,7 +44,7 @@
                             <a class="nav-link active" aria-current="page" href="<?php echo base_url('customer/dashboard') ?>">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#!">About</a>
+                            <a class="nav-link" href="<?php echo base_url('customer/aboutus') ?>">About</a>
                         </li>
 
                         <?php if($this->session->userdata('nama')) { ?>
