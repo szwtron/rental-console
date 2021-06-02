@@ -8,6 +8,7 @@
         .game-list{
             margin-top:10rem;
         }
+
     </style>
     
     <body >
@@ -53,12 +54,161 @@
             </div>
         </header>
 
+        <!-- Best Sellers -->
+
+        <div class="container px-4 px-lg-5 my-5 pt-5 ghost">
+            <div class="text-center text-black">
+                
+                <h1 class="display-4 fw-bolder">Best Sellers</h1> 
+            </div>
+        </div>
+
+                 
+            <?php $n = 0; foreach($console as $cs) {
+                ?>
+                <div class="col-md-6 ghost" style=""> 
+                    <div class="container px-4 px-lg-5">
+                        <div class="bg-white px-4 px-lg-5 mt-5">
+                            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 ">
+
+                                <div class="container-test ghost" style="width:500px;!important">
+                                    <div class="box">
+                                        <h2 class="name"><?php echo $cs->nama_console?></h2>
+
+                                        
+
+                                        <div class="text-center">
+
+                                        <?php if($this->session->userdata('nama')) { ?>
+                                            <?php $keranjangs = $this->cart->total_items() ?>
+                                            <?php                          
+                                                if($cs->status_console == "0"){
+                                                    echo "<span class='btn btn-danger mb-2 buy' style='cursor:not-allowed;'disable> Tidak Tersedia </span>";
+                                                } else { 
+                                                    if($keranjangs == "0"){
+                                                        echo anchor('customer/dashboard/tambah_keranjang/'.$cs->id_console, '<button class="btn btn-success mb-2 buy">Rental</button>');
+                                                    }else {
+                                                        foreach($this->cart->contents() as $tr) :
+                                                        if($tr['id'] == $cs->id_console) { 
+                                                            $flag = "1";
+                                                            break;
+                                                        }else {
+                                                            $flag = "0";
+                                                        }
+                                                        endforeach;  
+
+                                                        if($flag == "0"){
+                                                            echo anchor('customer/dashboard/tambah_keranjang/'.$cs->id_console, '<button class="btn btn-success mb-2 buy">Rental</button>');
+                                                        }else {
+                                                            echo "<span class='btn btn-danger mb-2 buy' style='cursor:not-allowed;'disable> Sudah anda pesan </span>";
+                                                        }
+                                                    }
+                                                        
+                                                }
+                                            ?>
+                                            
+                                            
+                                            <?php } else { ?>
+
+                                            <?php                          
+                                                if($cs->status_console == "0"){
+                                                    echo "<span class='btn btn-danger mb-2 buy' style='cursor:not-allowed;'disable> Tidak Tersedia </span>";
+                                                } else {
+                                                    echo anchor('auth/login', '<button class="btn btn-success mb-2 buy">Rental</button>');
+                                                }
+                                            ?>   
+                                        <?php } ?>
+
+                                        </div>
+
+                                        <div class="circle"></div>
+                                        <img class="product" src="<?php echo base_url('assets/upload/'.$cs->gambar) ?>" alt="">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="col-md-6 ghost" style="float:right;bottom:350px; margin-right:250px">
+                        <div class="card-body mb-0 mt-1">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h2 class="fw-bolder"><?php echo $cs->nama_console ?></h1>
+                                <!-- Product price-->
+                                <h2>Rp. <?php echo number_format($cs->harga, 0,',','.')?></h2>
+                                
+
+                                <div class="text-center">
+                                    <!-- Fitur Console -->
+                                    <?php 
+                                        if($cs->multiplayer == "1"){
+                                            echo "<span class='badge alert-success'><span>&#10003;</span> Multiplayer</span>";
+                                        } else {
+                                            echo "<span class='badge alert-danger'><span>&#10007;</span> Multiplayer</span>";
+                                        }
+                                    ?>
+
+                                    <?php 
+                                        if($cs->ad_hoc == "1")
+                                        echo "<span class='badge alert-success'><span>&#10003;</span> Ad-hoc Network</span>"
+                                    ?>
+
+                                    <?php 
+                                        if($cs->online == "1") {
+                                        echo "<span class='badge alert-success'><span>&#10003;</span> Online</span>";
+                                        } else {
+                                            echo "<span class='badge alert-danger'><span>&#10007;</span> Online</span>";
+                                        }
+                                    ?>
+
+                                    <?php 
+                                        if($cs->subscription == "1") 
+                                        echo "<span class='badge alert-success'><span>&#10003;</span> Subscription</span>"
+                                    ?>
+                                    
+                                    <?php 
+                                        if($cs->small_storage == "1")
+                                        echo "<span class='badge alert-success'><span>&#10003;</span> 250GB</span>"
+                                    ?>
+
+                                    <?php 
+                                        if($cs->medium_storage == "1")
+                                        echo "<span class='badge alert-success'><span>&#10003;</span> 500GB</span>"
+                                    ?>         
+
+                                    <?php 
+                                        if($cs->large_storage == "1")
+                                        echo "<span class='badge alert-success'><span>&#10003;</span> 1000GB</span>"
+                                    ?>
+                                </div>
+                                
+                            </div>
+                        </div>       
+                    </div>
+        <?php
+        $n++;
+        ?> 
+        
+
+        <?php
+        if($n == 2){
+            break;
+        }
+        }
+        ?> 
+        
+
+        
+
         <!-- Section Playstation -->
         <section>
 
-        <div class="container px-4 px-lg-5 my-5 pt-5">
-            <div class="text-center text-black">
-                <img class="text-center" style="width: 6%; 3%;" src="<?php echo base_url('assets/assets_shop/img/playstation-logo.png') ?>" alt="First slide">
+        <div class="container px-4 px-lg-5 my-5 pt-5 justify-content-center">
+            <div class="text-center text-black mt-5">
+                <br>
+                <img class="" style="width: 6%; 3%;align:center;" src="<?php echo base_url('assets/assets_shop/img/playstation-logo.png') ?>" alt="First slide">
                 <h1 class="display-4 fw-bolder">Playstation&#8482;</h1> 
             </div>
         </div>
@@ -67,6 +217,7 @@
             <div class=""> 
                 <div class="container px-4 px-lg-5">
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
                         <?php foreach($console as $cs) : 
                             
                             if($cs->id_category == 1){
