@@ -4,7 +4,6 @@ class Category extends CI_Controller
 
     public function index()
     {
-
         $data['category'] = $this->rental->get_data('category')->result();
 
         $this->load->view('templates_admin/header');
@@ -15,7 +14,6 @@ class Category extends CI_Controller
 
     public function tambah_category()
     {
-
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/form_tambah_category');
@@ -93,7 +91,6 @@ class Category extends CI_Controller
 
     public function _rules()
     {
-
         $this->form_validation->set_rules('nama_cat', 'Nama Category', 'required');
         $this->form_validation->set_rules('description_cat', 'Description', 'required');
     }
