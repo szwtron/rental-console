@@ -48,14 +48,6 @@
                         </div>
                 
                         <div class="col-md-6">
-                            <!-- <div class="form-group">
-                                <label for="">Storage: </label>
-                                <div class="form-check form-check-inline">
-                                    <select name="storage">
-
-                                    </select>
-                                </div>
-                            </div> -->
 
                             <div class="form-group">
                                 <label for="">Storage</label>

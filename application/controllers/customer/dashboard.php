@@ -23,7 +23,6 @@ class Dashboard extends CI_Controller
     {
         $this->load->model('transaction');
         $this->transaction->cek_denda();
-        //$data['transaksi'] = $this->rental->get_transaksi($id);
         $data['invoice'] = $this->model_invoice->tampil_data_id($id);
 
         $this->load->view('templates_customer/header');
@@ -31,7 +30,8 @@ class Dashboard extends CI_Controller
         $this->load->view('templates_customer/footer');
     }
 
-    public function tambah_keranjang($id){
+    public function tambah_keranjang($id)
+    {
         $console = $this->rental->get_id_console($id);
         $check = $this->cart->contents();
 
@@ -55,8 +55,6 @@ class Dashboard extends CI_Controller
             'returnDate' => 0
         );
 
-        var_dump($check);
-
         if($check->id_console == $console[0]->id_console){
             redirect(base_url('customer/dashboard'));
         }else{
@@ -67,67 +65,64 @@ class Dashboard extends CI_Controller
 
     }
 
-    // public function detail_keranjang($id){
-    //     $this->load->view('templates_customer/header');
-    //     $this->load->view('customer/detail_keranjang');
-    //     $this->load->view('templates_customer/footer');
-    // }
-
-    public function detail_keranjang2($id){
+    public function detail_keranjang2($id)
+    {
         $this->load->view('templates_customer/header');
         $this->load->view('customer/detail_keranjang2');
         $this->load->view('templates_customer/footer');
     }
 
-    public function hapus_keranjang(){
+    public function hapus_keranjang()
+    {
         $this->cart->destroy();
         redirect(base_url('customer/dashboard'));
     }
 
-    public function checkout(){
-        $fromDate = $this->input->post('fromDate');
-        $toDate = $this->input->post('toDate');
+    public function checkout()
+    {
+        $this->_rules();
 
-        $duration = abs(strtotime($fromDate) - strtotime($toDate));
-        $years = floor($duration / (365 * 60 * 60 * 24));
-        $months = floor(($duration - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
-        $days = floor(($duration - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
+        if ($this->form_validation->run() == false) {
+            $id = $this->session->userdata('id');
+            $this->detail_keranjang2($id);
+        } else {
+            $fromDate = $this->input->post('fromDate');
+            $toDate = $this->input->post('toDate');
 
+            $duration = abs(strtotime($fromDate) - strtotime($toDate));
+            $years = floor($duration / (365 * 60 * 60 * 24));
+            $months = floor(($duration - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
+            $days = floor(($duration - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
 
-
-
-        $data['date'] = array(
-            'fromDate' => $fromDate,
-            'toDate' => $toDate,
-            'years' => $years,
-            'months' => $months,
-            'days' => $days
-        );
-
-
-
-        //$fromDate = $this->input->post('fromDate');
-        //$toDate = $this->input->post('toDate');
-        //var_dump($data);
-        //var_dump($toDate);
-        //die();
-        $this->load->view('templates_customer/header');
-        $this->load->view('customer/checkout', $data);
-        $this->load->view('templates_customer/footer');
+            $data['date'] = array(
+                'fromDate' => $fromDate,
+                'toDate' => $toDate,
+                'years' => $years,
+                'months' => $months,
+                'days' => $days
+            );
+            $this->load->view('templates_customer/header');
+            $this->load->view('customer/checkout', $data);
+            $this->load->view('templates_customer/footer');
+        }
     }
 
-    public function proses_checkout(){
+    public function proses_checkout()
+    {
         $is_processed = $this->model_invoice->index();
         if($is_processed){
             $this->cart->destroy();
-            $this->load->view('templates_customer/header');
-            $this->load->view('customer/proses_checkout');
-            $this->load->view('templates_customer/footer');
+            $id = $this->session->userdata('id');
+            $this->daftar_transaksi($id);
         } else {
             echo "Maaf, pesanan anda gagal diproses";
         }
+    }
 
-
+    public function _rules()
+    {
+        $this->form_validation->set_rules('fromDate', 'Tanggal Rental', 'required');
+        $this->form_validation->set_rules('toDate', 'Tanggal Kembali', 'required');
     }
 
 }
