@@ -60,6 +60,13 @@ class Rental extends CI_model
     public function get_transaksi($id)
     {
         $result = $this->db->query("SELECT * FROM transaksi o, console cs WHERE o.id_console = cs.id_console AND o.id_user = $id")->result();
+        
+        return $result;
+    }
+
+    public function get_category_name($id)
+    {
+        $result = $this->db->query("SELECT nama_cat FROM category WHERE id_category = $id")->result();
         return $result;
     }
 

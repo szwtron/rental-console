@@ -35,6 +35,10 @@ class Dashboard extends CI_Controller
         $console = $this->rental->get_id_console($id);
         $check = $this->cart->contents();
 
+
+
+        $category_name = $this->rental->get_category_name($console[0]->id_category);
+
         $data = array(
             'id'      => $console[0]->id_console,
             'id_user' => $this->session->userdata['id'],
@@ -52,7 +56,9 @@ class Dashboard extends CI_Controller
             'harga' => $console[0]->harga,
             'game_list' => $console[0]->game_list,
             'gambar' => $console[0]->gambar,
-            'returnDate' => 0
+            'returnDate' => 0,
+            'id_category' => $console[0]->id_category,
+            'category_name' => $category_name[0]->nama_cat
         );
 
         if($check->id_console == $console[0]->id_console){
@@ -65,10 +71,10 @@ class Dashboard extends CI_Controller
 
     }
 
-    public function detail_keranjang2($id)
+    public function detail_keranjang($id)
     {
         $this->load->view('templates_customer/header');
-        $this->load->view('customer/detail_keranjang2');
+        $this->load->view('customer/detail_keranjang');
         $this->load->view('templates_customer/footer');
     }
 
@@ -84,7 +90,7 @@ class Dashboard extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $id = $this->session->userdata('id');
-            $this->detail_keranjang2($id);
+            $this->detail_keranjang($id);
         } else {
             $fromDate = $this->input->post('fromDate');
             $toDate = $this->input->post('toDate');
