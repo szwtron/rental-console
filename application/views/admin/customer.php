@@ -8,7 +8,7 @@
         
         <?php echo $this->session->flashdata('pesan') ?>
 
-        <table class="table table-striped table-responsive table-bordered">
+        <table class="table table-striped table-bordered">
             <tr>
                 <th>No</th>
                 <th>Nama</th>

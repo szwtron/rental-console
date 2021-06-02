@@ -6,7 +6,6 @@
     </section>
 
     <form method="POST" action="<?php echo base_url('admin/customer/tambah_customer_action')?>">
-
         <div class="form-group">
             <label>Nama</label>
             <input type="text" name="nama" class="form-control">
@@ -55,7 +54,5 @@
 
         <button type="submit" class="btn btn-sm btn-primary">Submit</button>
         <button type="reset" class="btn btn-sm btn-danger">Reset</button>
-
     </form>
-
 </div>

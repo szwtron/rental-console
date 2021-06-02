@@ -51,7 +51,6 @@
                             </div>   
                         </div>
 
-
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Harga</label>
@@ -120,16 +119,12 @@
                                 </div>      
                             </div>
 
-
-
                             <button type="submit" class="btn btn-primary mt-2">Simpan</button>
                             <button type="reset" class="btn btn-danger mt-2">Reset</button>
-
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-
     </section>
 </div>
