@@ -1,11 +1,6 @@
 <div class="main-content">
     <section class="section">
-        <div class="section-header">
-           
-        </div>
-        
-
-
+        <div class="section-header"></div>
             <div class="pb-5">
             <div class="container">
             <div class="row">
@@ -49,7 +44,7 @@
                         <td class="border-0 align-middle"><strong>Rp. <?php echo number_format($tr['price'], 0,',','.')?></strong></td>
                         <td class="border-0 align-middle"><strong><?php echo $tr['qty']?></strong></td>
                         <td class="border-0 align-middle">
-                        
+
                         <?php if($tr['multiplayer_tr'] == "1") {
                             echo "<span class='badge alert-success m-1'>Multiplayer</span>";
                         }?>
@@ -62,10 +57,10 @@
                         <?php if($tr['subscription_tr'] == "1") {
                         echo "<span class='badge alert-success m-1'>Subcsription</span>";
                         }?>
-                        
+
                         </td>
                         </tr>
- 
+
                     </tbody>
                     <?php endforeach; ?>
                     </table>
@@ -90,7 +85,7 @@
                         <input type="date" name="toDate" class="form-control">
                         <?php echo form_error('toDate', '<div class="text-small text-danger">','</div>') ?>
                     </div>
-                
+
                     <div align="right">
                         <a href="<?php echo base_url('customer/dashboard/hapus_keranjang') ?>"><div class="btn btn-sm btn-danger">Hapus Keranjang</div></a>
                         <a href="<?php echo base_url('customer/dashboard') ?>"><div class="btn btn-sm btn-primary">Back</div></a>
@@ -98,6 +93,5 @@
                     </div>
                 </form>
             </div>
-
     </section>
 </div>

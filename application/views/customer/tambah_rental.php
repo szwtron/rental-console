@@ -46,7 +46,7 @@
                                 <input type="date" name="toDate" class="form-control">
                             </div>
                         </div>
-                
+
                         <div class="col-md-6">
 
                             <div class="form-group">
@@ -73,7 +73,7 @@
                                             <input class="form-check-input" type="hidden" name="multiplayer_tr" value="0" />
                                             <input class="form-check-input" type="checkbox" name="multiplayer_tr" value="1" />
                                             <label class="form-check-label" for="">Multiplayer</label>
-                                        </div>      
+                                        </div>
                                     </div>
                                 <?php
                             }else{
@@ -88,14 +88,14 @@
                                             <input class="form-check-input" type="hidden" name="ad_hoc_tr" value="0" />
                                             <input class="form-check-input" type="checkbox" name="ad_hoc_tr" value="1" />
                                             <label class="form-check-label" for="">Ad-hoc Network</label>
-                                        </div>      
+                                        </div>
                                     </div>
                                 <?php
                             }else{
                                 ?>
                                 <input class="form-check-input" type="hidden" name="ad_hoc_tr" value="0" />
                             <?php } ?>
-                            
+
                             <?php if($dt->online == '1'){
                                 ?>
                                     <div class="form-group">
@@ -103,7 +103,7 @@
                                             <input class="form-check-input" type="hidden" name="online_tr" value="0" />
                                             <input class="form-check-input" type="checkbox" name="online_tr" value="1" />
                                             <label class="form-check-label" for="">Online</label>
-                                        </div>      
+                                        </div>
                                     </div>
                                 <?php
                             }else{
@@ -118,7 +118,7 @@
                                             <input class="form-check-input" type="hidden" name="subscription_tr" value="0" />
                                             <input class="form-check-input" type="checkbox" name="subscription_tr" value="1" />
                                             <label class="form-check-label" for="">Subscription</label>
-                                        </div>      
+                                        </div>
                                     </div>
                                 <?php
                             }else{

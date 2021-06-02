@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 class Invoice_customer extends CI_Controller {
     public function detail_invoice($id_invoice){
         $data['transaksi'] = $this->db->query("SELECT * FROM transaksi o, console cs, user us WHERE o.id_console = cs.id_console AND o.id_user = us.id AND o.id_invoice = $id_invoice")->result();
-        
+
         $this->load->view('templates_customer/header');
         $this->load->view('customer/detail_invoice', $data);
         $this->load->view('templates_customer/footer');
@@ -17,7 +17,7 @@ class Invoice_customer extends CI_Controller {
     }
 
     public function transaction_batal($id){
-        
+
         $where = array('id_invoice' => $id);
 
         $this->model_invoice->delete_data($where, 'invoice');

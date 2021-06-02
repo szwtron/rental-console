@@ -22,7 +22,7 @@
                     <td><img class="card-img-top" style="width:100px;" src="<?php echo base_url('assets/upload/'.$tr->gambar) ?>"></td>
                     <td><?php echo $tr->nama_console?></td>
                     <td>Rp. <?php echo number_format($tr->harga, 0,',','.') ?></td>
-                    <td> 
+                    <td>
                         <?php if ($tr->multiplayer_tr == "1") {
                             echo "<span class='badge alert-success m-1'>Multiplayer</span>";
                         }?>

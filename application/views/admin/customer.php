@@ -5,7 +5,7 @@
         </div>
 
         <a href="<?php echo base_url('admin/customer/tambah_customer')?>" class="btn btn-primary mb-3"><i class="fas fa-plus mr-1"></i>Tambah Customer</a>
-        
+
         <?php echo $this->session->flashdata('pesan') ?>
 
         <table class="table table-striped table-bordered">
@@ -24,7 +24,7 @@
                 $no = 1;
                 foreach($customer as $cst) :
             ?>
-            
+
             <tr>
                 <td><?php echo $no++?></td>
                 <td><?php echo $cst->nama?></td>
@@ -42,7 +42,7 @@
                             <i class="fas fa-edit"></i>
                         </a>
                     </div>
-                    
+
                 </td>
             </tr>
 

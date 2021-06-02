@@ -1,7 +1,9 @@
 <?php
 
-class model_invoice extends CI_Model{
-    public function index(){
+class model_invoice extends CI_Model
+{
+    public function index()
+    {
         $nama_pemesan = $this->input->post('nama_pemesan');
         $alamat = $this->input->post('alamat');
         $noTelp = $this->input->post('noTelp');
@@ -10,9 +12,6 @@ class model_invoice extends CI_Model{
         $total = $this->input->post('total');
         $catatan = $this->input->post('catatan');
         $id_user = $this->input->post('id_user');
-        //$status_pesanan = $this->input->post('status_pesanan');
-        //$status_pesanan = $this->input->post('status_pesanan');
-        //$denda = 0;
 
         $invoice = array(
             'nama_pemesan' => $nama_pemesan,
@@ -29,7 +28,7 @@ class model_invoice extends CI_Model{
         $this->db->insert('invoice', $invoice);
         $id_invoice = $this->db->insert_id();
 
-        foreach ($this->cart->contents() as $item){
+        foreach ($this->cart->contents() as $item) {
             $data = array(
                 'id_invoice' => $id_invoice,
                 'id_user' => $item['id_user'],
@@ -53,36 +52,40 @@ class model_invoice extends CI_Model{
         return true;
     }
 
-    public function tampil_data() {
+    public function tampil_data()
+    {
         $result = $this->db->get('invoice');
-        if($result->num_rows() > 0){
+        if ($result->num_rows() > 0) {
             return $result->result();
         } else {
             return false;
         }
     }
 
-    public function tampil_data_id($id_user) {
+    public function tampil_data_id($id_user)
+    {
         $result = $this->db->where('id_user', $id_user)->get('invoice');
-        if($result->num_rows() > 0){
+        if ($result->num_rows() > 0) {
             return $result->result();
         } else {
             return false;
         }
     }
 
-    public function ambil_id_invoice($id_invoice){
+    public function ambil_id_invoice($id_invoice)
+    {
         $result = $this->db->where('id_invoice', $id_invoice)->limit(1)->get('invoice');
-        if($result->num_rows() > 0){
+        if ($result->num_rows() > 0) {
             return $result->row();
         } else {
             return false;
         }
     }
 
-    public function ambil_id_pesanan($id_invoice){
+    public function ambil_id_pesanan($id_invoice)
+    {
         $result = $this->db->where('id_invoice', $id_invoice)->limit(1)->get('transaksi');
-        if($result->num_rows() > 0){
+        if ($result->num_rows() > 0) {
             return $result->result();
         } else {
             return false;
@@ -107,6 +110,3 @@ class model_invoice extends CI_Model{
     }
 
 }
-
-
-

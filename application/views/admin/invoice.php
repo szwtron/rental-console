@@ -39,7 +39,7 @@
                         echo "<span class='badge alert-success'>$inv->status_invoice</span>";
                     }?>
                     </td>
-                    
+
                     <td class="text-center">
                         <?php if ($inv->returnDate == 0) {
                             echo "<span class='badge alert-warning'>Belum dikembalikan</span>";
@@ -51,22 +51,21 @@
                     <td>
                         <div class="row">
                         <?php echo anchor('admin/invoice/detail/'.$inv->id_invoice, '<div class="btn btn-sm btn-primary mr-2">Details</div>' ) ?>
-                        <?php 
-                            
+                        <?php
+
                             if($inv->status_invoice == "Sedang Dikirim"){
                                 ?>
-                                    
                                     <a href="<?php echo base_url('admin/invoice/transaction_dikirim/').$inv->id_invoice?>" class="btn btn-sm btn-success mr-2"><i class="fas fa-check"></i></a>
                                     <a href="<?php echo base_url('admin/invoice/transaction_batal/').$inv->id_invoice?>" class="btn btn-sm btn-danger"><i class="fas fa-times"></i></a>
-                                    
+
                                 <?php
-                            }else if($inv->status_invoice == "Siap di Pick-up"){ 
+                            }else if($inv->status_invoice == "Siap di Pick-up"){
                                 ?>
                                     <a href="<?php echo base_url('admin/invoice/transaction_selesai/').$inv->id_invoice?>" class="btn btn-sm btn-success mr-2"><i class="fas fa-check"></i></a>
                                     <a href="<?php echo base_url('admin/invoice/transaction_batal/').$inv->id_invoice?>" class="btn btn-sm btn-danger"><i class="fas fa-times"></i></a>
-                                <?php 
+                                <?php
                             }
-                        
+
                         ?>
                         </div>
                     </td>

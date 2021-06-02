@@ -20,7 +20,7 @@
         </thead>
 
         <tbody>
-            <?php 
+            <?php
             foreach($category as $cat) : ?>
                 <tr class="text-center">
                     <td><?php echo $cat->id_category ?></td>

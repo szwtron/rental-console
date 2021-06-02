@@ -8,7 +8,6 @@
     <?php foreach ($detail as $dt) : ?>
         <div class="card">
             <div class="card-body">
-                
                 <div class="row">
                     <div class="col-md-5">
                         <img width="400px" src="<?php echo base_url().'assets/upload/'.$dt->gambar ?>">
@@ -42,7 +41,7 @@
                             <tr>
                                 <td>Status</td>
                                 <td>
-                                    <?php 
+                                    <?php
                                         if($dt->status_console == "0"){
                                             echo "<span class='badge badge-danger'>Tidak Tersedia</span>";
                                         }else {

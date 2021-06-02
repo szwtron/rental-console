@@ -56,25 +56,25 @@
                     </ul>
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        
+
                             <?php if($this->session->userdata('nama')) { ?>
                                 <li class="nav-item" style="margin-right: 0.5rem; margin-top: 0.8rem;">
                                     Welcome, <?php echo $this->session->userdata('nama')?>
                                 </li>
                                 <li class="nav-item">
                                     <form class="d-flex" style="margin-right: 0.5rem; margin-top: 0.3rem;">
-                                            <?php 
+                                            <?php
                                                 $keranjangs = $this->cart->total_items()
                                             ?>
                                         <a href="<?php echo base_url('customer/dashboard/detail_keranjang/'.$keranjangs)?>" class="btn btn-outline-dark" type="submit">
                                             <i class="bi-cart-fill me-1"></i>
-                                            Cart 
+                                            Cart
                                             <span> </span>
                                             <span class="badge bg-dark text-white ms-1 rounded-pill"><?php echo $keranjangs ?></span>
                                         </a>
                                     </form>
                                 </li>
-                                
+
                                 <a class="nav-link" href="<?php echo base_url('auth/logout')?>"><span class="btn btn-sm btn-warning">Logout</span></a>
                                 <a class="nav-link" href="<?php echo base_url('auth/ganti_password')?>"><span class="btn btn-sm btn-primary">Change Password</span></a>
                                 <?php } else { ?>
@@ -85,7 +85,7 @@
                                     <a class="nav-link" href="<?php echo base_url('register') ?>"><span class="btn btn-sm btn-primary">Register</span></a>
                                 </li>
                             <?php } ?>
-                        
+
                     </ul>
                 </div>
             </div>

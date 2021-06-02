@@ -32,7 +32,7 @@
                             <input type="text" class="form-control" name="alamat">
                             <?php echo form_error('alamat', '<div class="text-small text-danger">', '</div>')?>
                         </div>
-                        
+
                         <div class="row">
                             <div class="form-group col-6">
                                 <label for="gender" class="d-block">Gender</label>
@@ -64,13 +64,13 @@
                                 <input type="password" class="form-control" name="password">
                                 <?php echo form_error('password', '<div class="text-small text-danger">', '</div>')?>
                             </div>
-                        </div> 
+                        </div>
 
                         <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-lg btn-block">
                         Register
                         </button>
-                        
+
                     </form>
               </div>
             </div>

@@ -25,7 +25,7 @@ class Transaction extends CI_model
             $currentDate = time();
             $datestring = '%Y-%m-%d';
             $time = time();
-            $better_date = mdate($datestring, $time); //  i.e : 2018-05-23 - 09:52 am | For AM | PM result
+            $better_date = mdate($datestring, $time);
 
             if ($returnDate != 0) {
                 $overdue = strtotime($toDate) - strtotime($returnDate);
@@ -77,10 +77,10 @@ class Transaction extends CI_model
     public function cek_stock()
     {
         $result = $this->db->get('console')->result();
-        foreach ($result as $rs) :
-            if($rs->stock == 0){
+        foreach ($result as $rs):
+            if ($rs->stock == 0) {
                 $this->db->query("UPDATE console SET status_console = 0 WHERE id_console = $rs->id_console");
-            }else{
+            } else {
                 $this->db->query("UPDATE console SET status_console = 1 WHERE id_console = $rs->id_console");
             }
         endforeach;

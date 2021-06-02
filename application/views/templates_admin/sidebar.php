@@ -1,9 +1,9 @@
-<?php 
+<?php
   $role_id = $this->session->userdata('role_id');
   if($role_id == 2 || $role_id == null){
     redirect(base_url('customer/dashboard'));
   }
-?>  
+?>
 <body>
   <div id="app">
     <div class="main-wrapper">

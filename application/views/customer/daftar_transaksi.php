@@ -4,8 +4,6 @@
             <h1>Daftar Transaksi</h1>
         </div>
 
-        
-
         <table class="table table-responsive-sm table-bordered table-striped">
             <tr>
                 <th>No</th>
@@ -49,23 +47,22 @@
                     }?>
                     </td>
 
-                    <!-- Status -->
                     <td>
                         <a href="<?php echo base_url('customer/invoice_customer/detail_invoice/').$tr->id_invoice?>" ><button class="btn btn-sm btn-primary m-2">Details</button></a>
-                        <?php 
-                        
+                        <?php
+
                             if($tr->status_invoice == "Sudah Dikirim"){
                                 ?>
-                                    
+
                                     <a href="<?php echo base_url('customer/invoice_customer/transaction_diterima/').$tr->id_invoice?>" ><button class="btn btn-sm btn-success m-2"><i class="bi bi-check"></i></button></a>
-                                        
+
                                 <?php
                             }
-                        
+
                         ?>
                         <a href="<?php echo base_url('customer/invoice_customer/transaction_batal/').$tr->id_invoice?>" ><button class="btn btn-sm btn-danger m-2"><i class="bi bi-x"></i></button></a>
                     </td>
-                    
+
                 </tr>
 
             <?php endforeach; ?>

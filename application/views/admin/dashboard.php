@@ -1,4 +1,3 @@
-      <!-- Main Content -->
       <div class="main-content">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <section class="section">
@@ -66,4 +65,3 @@
           </div>
         </section>
       </div>
-     

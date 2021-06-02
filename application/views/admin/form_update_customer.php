@@ -44,7 +44,7 @@
             <label>Gender</label>
             <select name="gender" class="form-control">
                 <option value="<?php echo $cst->gender ?>"><?php echo $cst->gender?></option>
-                <?php 
+                <?php
                     if ($cst->gender == 'Laki-laki') {
                         echo '<option value="Perempuan">Perempuan</option>';
                     } else {

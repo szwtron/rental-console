@@ -5,7 +5,7 @@
         </div>
 
         <a href="<?php echo base_url('admin/console/tambah_console')?>" class="btn btn-primary mb-3"><i class="fas fa-plus mr-1"></i>Tambah Data</a>
-        
+
         <?php echo $this->session->flashdata('pesan') ?>
 
         <table class="table table-hover table-striped table-bordered">
@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php 
+                <?php
                     $no = 1;
                     foreach($console as $cs) : ?>
                     <tr>
@@ -36,15 +36,15 @@
                         <td><?php echo $cs->nama_cat ?></td>
                         <td><?php echo $cs->stock ?></td>
                         <td>Rp. <?php echo number_format($cs->harga, 0,',','.') ?></td>
-                        
-                        <td> 
-                            <?php            
+
+                        <td>
+                            <?php
                                 if($cs->status_console == "0"){
                                 echo "<span class='badge badge-danger'> Tidak Tersedia </span>";
                                 } else {
                                 echo "<span class='badge badge-success'> Tersedia </span>";
                                 }
-                            ?>    
+                            ?>
                         </td>
                         <td>
                             <a href="<?php echo base_url('admin/console/detail_console/').$cs->id_console ?>" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
@@ -53,7 +53,7 @@
                         </td>
                     </tr>
                 <?php endforeach; ?>
-                
+
             </tbody>
         </table>
 

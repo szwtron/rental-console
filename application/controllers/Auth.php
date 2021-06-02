@@ -5,7 +5,7 @@ class Auth extends CI_Controller
     public function login()
     {
         $this->_rules();
-        
+
         if ($this->form_validation->run() == false) {
             $this->load->helper('captcha');
             $vals = array(
@@ -19,8 +19,7 @@ class Auth extends CI_Controller
                     'font_size'     => 16,
                     'img_id'        => 'Imageid',
                     'pool'          => '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
-            
-                    // White background and border, black text and red grid
+
                     'colors'        => array(
                             'background' => array(255, 255, 255),
                             'border' => array(255, 255, 255),
@@ -28,12 +27,11 @@ class Auth extends CI_Controller
                             'grid' => array(255, 40, 40)
                     )
             );
-            
+
             $cap = create_captcha($vals);
             $image = $cap['image'];
             $captchaword = $cap['word'];
             $this->session->set_userdata('captchaword', $captchaword);
-            //echo $captchaword;
 
             $this->load->view('templates_admin/header');
             $this->load->view('form_login',['captcha_image'=>$image]);
@@ -69,13 +67,11 @@ class Auth extends CI_Controller
                 $this->load->model('transaction');
                 $jumlah_transaksi = $this->transaction->jumlah_transaksi($cek->id);
 
-                
-
                 $this->session->set_userdata('jumlah_transaksi', $jumlah_transaksi);
                 $this->session->set_userdata('email', $cek->email);
                 $this->session->set_userdata('role_id', $cek->role_id);
                 $this->session->set_userdata('nama', $cek->nama);
-                $this->session->set_userdata('id', $cek->id); 
+                $this->session->set_userdata('id', $cek->id);
 
                 switch ($cek->role_id) {
                     case '1':
