@@ -6,8 +6,8 @@ class Console extends CI_Controller
     {
         $data['category'] = $this->rental->get_data('category')->result();
         $data['console'] = $this->db->select('*')
-                                    ->join('category', 'console.id_category = category.id_category')
-                                    ->get('console')->result();
+            ->join('category', 'console.id_category = category.id_category')
+            ->get('console')->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
