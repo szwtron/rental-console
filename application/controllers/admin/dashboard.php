@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller
         $dashboard['user'] = $this->db->query("SELECT COUNT(*) as total_user FROM user WHERE role_id = 2")->result();
         $dashboard['invoice'] = $this->db->query("SELECT COUNT(*) as total_transaksi FROM invoice")->result();
         $dashboard['done_invoice'] = $this->db->query("SELECT COUNT(*) as total_transaksi_selesai FROM invoice WHERE status_invoice='Selesai'")->result();
-
+        $this->transaction->cek_stock();
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/dashboard', $dashboard);

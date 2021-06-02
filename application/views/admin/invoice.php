@@ -28,8 +28,6 @@
                     <td><?php echo $inv->toDate?></td>
                     <td>Rp. <?php echo number_format($inv->total, 0,',','.') ?></td>
 
-                    <!-- <td><?php echo $inv->status_invoice?></td> -->
-
                     <td>
                     <?php if($inv->status_invoice == "Sedang Dikirim"){
                         echo "<span class='badge alert-warning'>$inv->status_invoice</span>";
@@ -41,16 +39,16 @@
                         echo "<span class='badge alert-success'>$inv->status_invoice</span>";
                     }?>
                     </td>
-
                     
-                    <td class="text-center"><?php if($inv->returnDate == 0){
-                        echo "<span class='badge alert-warning'>Belum dikembalikan</span>";
-                    }else {
-                        echo "<span class='badge alert-success'>".date('d/m/Y', strtotime($inv->returnDate))."</span>";
-                    }?></td>
+                    <td class="text-center">
+                        <?php if ($inv->returnDate == 0) {
+                            echo "<span class='badge alert-warning'>Belum dikembalikan</span>";
+                        } else {
+                            echo "<span class='badge alert-success'>".date('d/m/Y', strtotime($inv->returnDate))."</span>";
+                        }?>
+                    </td>
 
                     <td>
-                        
                         <div class="row">
                         <?php echo anchor('admin/invoice/detail/'.$inv->id_invoice, '<div class="btn btn-sm btn-primary mr-2">Details</div>' ) ?>
                         <?php 
@@ -71,12 +69,7 @@
                         
                         ?>
                         </div>
-
-
-
-                        
                     </td>
-
                 </tr>
             <?php endforeach; ?>
         </table>
