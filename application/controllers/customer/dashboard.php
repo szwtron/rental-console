@@ -119,10 +119,7 @@ class Dashboard extends CI_Controller
         if($is_processed){
             $this->cart->destroy();
             $id = $this->session->userdata('id');
-            $data['console'] = $this->rental->get_data('console')->result();
-            $this->load->view('templates_customer/header');
-            $this->load->view('customer/dashboard', $data);
-            $this->load->view('templates_customer/footer');
+            redirect(base_url('customer/dashboard'));
         } else {
             echo "Maaf, pesanan anda gagal diproses";
         }
