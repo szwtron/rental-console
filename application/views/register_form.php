@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
             <div class="login-brand">
-              <img src="<?php echo base_url('assets/')?>icon-removebg-preview-svg.svg" alt="logo" width="100" class="shadow-light rounded-circle">
+              <img src="<?php echo base_url('assets/')?>rentol-logo.svg" alt="logo" width="100" class="shadow-light rounded-circle">
             </div>
 
             <div class="card card-primary">

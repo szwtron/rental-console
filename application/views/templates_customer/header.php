@@ -8,7 +8,7 @@
         <title>Rental Console</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="<?php echo base_url('assets/assets_shop/') ?>assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="<?php echo base_url('assets/') ?>rentol-logo.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
