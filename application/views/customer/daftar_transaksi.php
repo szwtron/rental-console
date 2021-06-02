@@ -6,7 +6,7 @@
 
         
 
-        <table class="table table-responsive table-bordered table-striped">
+        <table class="table table-bordered table-striped">
             <tr>
                 <th>No</th>
                 <th>ID Invoice</th>

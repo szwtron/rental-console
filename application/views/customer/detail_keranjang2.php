@@ -4,7 +4,7 @@
             <h4>Keranjang Belanja</h4>
         </div>
         
-            <table class="table table-responsive table-bordered">
+            <table class="table table-bordered">
                 <tr>
                     <th>No</th>
                     <th style="width:200px;">Gambar</th>

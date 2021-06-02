@@ -115,7 +115,7 @@ class Auth extends CI_Controller
         $password_baru = $this->input->post('password_baru');
         $confirm_password = $this->input->post('confirm_password');
 
-        $this->form_validation->set_rules('password_baru', 'New Password', 'required|matches[confirm_password]');
+        $this->form_validation->set_rules('password_baru', 'New Password', 'required|matches[confirm_password]|min_length[8]');
         $this->form_validation->set_rules('confirm_password', 'Confirm New Password', 'required');
 
         if ($this->form_validation->run() == false) {
